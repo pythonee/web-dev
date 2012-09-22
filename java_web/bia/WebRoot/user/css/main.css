@@ -1,0 +1,56 @@
+
+#menu{
+	float:left;
+	width:140px;
+	margin:10 10;
+	border:1px #cccccc solid;
+}
+
+#registerfs{
+	width:500px; 
+	height:200px;
+}
+#forgotfs{
+	width:500px; 
+	height:150px;
+}
+#loginfs{
+	width:500px; 
+	height:150px;
+}
+
+.clear {
+	clear:both;
+}
+
+#hotList{
+	float:left;
+	width:710px;
+	margin:10 10;
+	border:1px #cccccc solid;
+}
+#categoryList{
+	float:left;
+	width:710px;
+	margin:10 10;
+	border:1px #cccccc solid;
+}
+#pEmail{
+	display:block;
+}
+#txtEmail{
+	display:none;
+}
+#btnSureEmail{
+	display:none;
+}
+#btnCancelEmail{
+	display:none;
+}
+#btnEditEmail{
+	display:block;
+}
+
+.filling{
+	height:50px;	
+}	

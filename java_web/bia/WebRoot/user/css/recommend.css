@@ -1,0 +1,217 @@
+
+#pasale {
+	margin-top: 15px;
+}
+
+#pasale .bbp-nav {
+	background: #d9edb8;
+	_padding-left: 1px;
+}
+
+#pasale .bbp-nav li {
+	float: left;
+	font-size: 14px;
+	position: relative;
+	margin-bottom: -8px;
+	margin-left: -1px;
+	background: url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites_hp.png) right -595px no-repeat;
+	left: -1px;
+}
+
+#pasale .bbp-nav li.first {
+	margin-left: 1px;
+	_margin-left: 0;
+}
+
+#pasale .bbp-nav li.last {
+	background-image: none;
+	left: -2px;
+}
+
+#pasale .bbp-nav li a {
+	float: left;
+	padding: 4px 15px 8px 15px;
+	color: #333;
+}
+
+#pasale .bbp-nav li.selected {
+	background: #fff;
+	border: 2px solid #accb7f;
+	top: -4px;
+}
+
+#pasale .bbp-nav li.selected a {
+	color: #2e6100;
+	font-weight: bold;
+	padding: 3px 8px 2px 8px;
+	background: #fff;
+	position: relative;
+	bottom: -3px;
+	outline: none;
+}
+
+#pasale .bbp-nav li.selected a:hover,#pasale .bbp-nav li.selected a:focus
+	{
+	text-decoration: none;
+}
+
+#pasale .bbp-content {
+	border: 2px solid #accb7f;
+	padding: 5px 2px 2px 2px;
+	margin:0;
+	float:left;
+}
+
+#pasale .bbp-content ul {
+	margin: 3px 0 3px 5px;
+}
+
+#pasale .bbp-content li {
+	float: left;
+	width: 70px;
+	padding: 0 8px;
+	text-align: center;
+	border-right: 1px dotted #cecece;
+}
+
+#pasale .bbp-content li img {
+	display: block;
+	margin-bottom: 3px;
+}
+
+#pasale .bbp-content li a {
+	color: #333;
+}
+
+#pasale .bbp-content li.first {
+	padding-left: 0;
+}
+
+#pasale .bbp-content li.last {
+	padding-right: 0;
+	border-right: 0;
+}
+
+#pasale .bbp-content p {
+	background: #f4f4f4;
+	border-top: 1px dotted #cecece;
+	padding: 4px 10px;
+}
+
+#pasale .bbp-content p a {
+	color: #666;
+}
+
+
+
+#pasale {
+	margin-top: 9px;
+	margin-bottom: 13px;
+}
+
+#pasale .bbp-nav {
+	background: #fff;
+	border-bottom: 3px solid #b30024;
+	_margin-right: -15px;
+}
+
+#pasale .bbp-nav li {
+	background: url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites.png) no-repeat 0 -206px;
+	display: block;
+	width: 181px;
+	height: 24px;
+	border: 1px solid #e3e3e3;
+	border-bottom: none;
+	margin-left: 6px;
+	margin-bottom: -3px;
+	font-size: 12px;
+	position: relative;
+}
+
+#pasale .bbp-nav li.first {
+	margin-left: 1px;
+	_margin-left: 0
+}
+
+#pasale .bbp-nav li span {
+	position: absolute;
+	display: block;
+	background: url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/new.gif) no-repeat;
+	width: 24px;
+	height: 18px;
+	right: 15px;
+	top: -8px;
+	overflow: hidden;
+	text-indent: -999px;
+}
+
+#pasale .bbp-nav li a {
+	display: block;
+	float: none;
+	text-align: center;
+	padding: 4px 0 8px 0;
+	_padding-bottom: 0;
+}
+
+#pasale .bbp-nav li.selected {
+	background: url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites.png) no-repeat 0 -167px;
+	border: none;
+	height: 28px;
+	top: -3px;
+	_top: 0px;
+	line-height: 28px;
+}
+
+#pasale .bbp-nav li.selected a {
+	color: #fff;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 0px;
+	background: none;
+	position: relative;
+	bottom: 0px;
+	outline: none;
+}
+
+#pasale .bbp-content {
+	border: 1px solid #e7e7e7;
+	padding: 5px 2px 2px 2px;
+}
+
+#pasale .bbp-content ul {
+	margin: 3px 0px 3px 0px;
+}
+
+#pasale .bbp-content li {
+	width: 123px;
+	height: 141px;
+	padding: 0;
+	text-align: center;
+	border-right: 1px dotted #cecece;
+	position: relative;
+}
+
+#pasale .bbp-content li span,#pasale .bbp-content li em {
+	display: block;
+	position: absolute;
+	width: 46px;
+	height: 40px;
+	top: 0;
+	left: 0;
+	background: url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/sale.png) no-repeat 0 0;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF600
+}
+
+#pasale .bbp-content li img {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 3px;
+}
+
+#pasale .bbp-content li strong {
+	color: #f30
+}

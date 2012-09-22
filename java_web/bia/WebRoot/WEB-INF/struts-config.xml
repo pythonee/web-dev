@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<data-sources />
+	<form-beans>
+		<form-bean name="UserForm"
+			type="org.apache.struts.action.DynaActionForm">
+			<form-property name="username" type="java.lang.String" />
+			<form-property name="password" type="java.lang.String" />
+			<form-property name="email" type="java.lang.String" />
+			<form-property name="passwordConfirm"
+				type="java.lang.String" />
+			<form-property name="txtAlphaCaptcha"
+				type="java.lang.String" />
+			<form-property name="txtMathCaptcha"
+				type="java.lang.String" />
+			<form-property name="newPassword" type="java.lang.String"
+				initial="pythonee" />
+			<form-property name="newPasswordConfirm"
+				type="java.lang.String" initial="pythonee" />
+		</form-bean>
+
+		<form-bean name="SearchForm"
+			type="org.apache.struts.action.DynaActionForm">
+			<form-property name="keyword" type="java.lang.String" />
+			<form-property name="price1" type="java.lang.Double"
+				initial="0.0" />
+			<form-property name="price2" type="java.lang.Double"
+				initial="10000.0" />
+			<form-property name="score" type="java.lang.Integer" />
+			<form-property name="store" type="java.lang.String" />
+			<form-property name="sort" type="java.lang.Integer" />
+			<form-property name="categoryId" type="java.lang.String" />
+			<form-property name="firstCategoryList"
+				type="java.lang.String" />
+			<form-property name="secondCategoryList"
+				type="java.lang.String" />
+			<form-property name="thirdCategoryList"
+				type="java.lang.String" />
+		</form-bean>
+
+		<form-bean name="CategoryForm"
+			type="org.apache.struts.action.DynaActionForm">
+			<form-property name="firstCategoryList"
+				type="java.lang.String" />
+			<form-property name="secondCategoryList"
+				type="java.lang.String" />
+			<form-property name="thirdCategoryList"
+				type="java.lang.String" />
+			<form-property name="fourthCategoryList"
+				type="java.lang.String" />
+			<form-property name="categoryId" type="java.lang.String" />
+			<form-property name="categoryName" type="java.lang.String" />
+			<form-property name="tags" type="java.lang.String" />
+			<form-property name="adaptcategoryId"
+				type="java.lang.String" />
+			<form-property name="origcategoryId"
+				type="java.lang.String" />
+			<form-property name="deletecategoryId"
+				type="java.lang.String" />
+		</form-bean>
+
+		<form-bean name="AdvertiseForm"
+			type="org.apache.struts.action.DynaActionForm">
+			<form-property name="advertiseId" type="java.lang.String" />
+			<form-property name="adCategoryId" type="java.lang.String" />
+			<form-property name="adName" type="java.lang.String" />
+			<form-property name="adDesc" type="java.lang.String" />
+			<form-property name="adPostion" type="java.lang.String" />
+			<form-property name="target" type="java.lang.String" />
+			<form-property name="startTime" type="java.lang.String" />
+			<form-property name="endTime" type="java.lang.String" />
+			<form-property name="theFile" type="java.lang.String" />
+		</form-bean>
+
+		<form-bean name="ResourceForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="name" type="java.lang.String" />
+			<form-property name="value" type="java.lang.String" />
+			<form-property name="role" type="java.lang.String" />
+			<form-property name="desc" type="java.lang.String" />
+			<form-property name="select" type="java.lang.Boolean" />
+		</form-bean>
+	</form-beans>
+
+	<global-exceptions />
+	<global-forwards>
+		<forward name="index" path="/index.jsp"></forward>
+	</global-forwards>
+	<action-mappings>
+		<action attribute="UserForm" input="/register.jsp"
+			name="UserForm" parameter="method" path="/user" scope="request"
+			type="com.mashup.action.UserAction">
+			<set-property property="cancellable" value="false" />
+		</action>
+		<action parameter="method" path="/details" scope="request"
+			type="com.mashup.action.ProductAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="details" path="/details.jsp" />
+		</action>
+		<action attribute="SearchForm" name="SearchForm"
+			parameter="method" path="/search" scope="request"
+			type="com.mashup.action.SearchAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="search" path="/search.jsp" />
+		</action>
+		<action parameter="method" path="/friend" scope="request"
+			type="com.mashup.action.FriendAction">
+		</action>
+		<action parameter="method" path="/collection" scope="request"
+			type="com.mashup.action.CollectionAction">
+		</action>
+		<action parameter="method" path="/comment" scope="request"
+			type="com.mashup.action.CommentAction">
+		</action>
+		<action parameter="method" path="/index" scope="request"
+			type="com.mashup.action.CategoryAction">
+		</action>
+		<action parameter="method" path="/register" scope="request"
+			type="com.mashup.action.UserAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="register" path="/register.jsp" />
+		</action>
+		<action parameter="method" path="/login" scope="request"
+			type="com.mashup.action.UserAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="login" path="/login.jsp" />
+		</action>
+		<action parameter="method" path="/forgot" scope="request"
+			type="com.mashup.action.UserAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="forgot" path="/forgot.jsp" />
+		</action>
+		<action parameter="method" path="/category" scope="request"
+			type="com.mashup.action.CategoryAction">
+		</action>
+		<action parameter="method" path="/admin/sensword"
+			scope="request" type="com.mashup.action.SensWordAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="sensword" path="/admin/sensword.jsp" />
+		</action>
+
+		<action attribute="AdvertiseForm" input="/admin/admgr.jsp"
+			name="AdvertiseForm" parameter="method" path="/admin/admgr"
+			scope="request" type="com.mashup.action.AdvertiseAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="admgr" path="/admin/admgr.jsp" />
+		</action>
+
+		<action parameter="method" path="/admin/usermgr" scope="request"
+			type="com.mashup.action.UserAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="usermgr" path="/admin/usermgr.jsp" />
+		</action>
+		<action parameter="method" path="/activateUser" scope="request"
+			type="com.mashup.action.UserAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="activateUser" path="/activateUser.jsp" />
+		</action>
+		<action parameter="method" path="/track" scope="request"
+			type="com.mashup.action.TrackAction">
+			<set-property property="cancellable" value="false" />
+		</action>
+
+		<action parameter="method" path="/admin/track" scope="request"
+			type="com.mashup.action.TrackAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="track" path="/admin/track.jsp" />
+		</action>
+
+		<action attribute="CategoryForm" name="CategoryForm"
+			parameter="method" path="/admin/category" scope="request"
+			type="com.mashup.action.CategoryAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="catemgr" path="/admin/catemgr.jsp" />
+		</action>
+
+		<action path="/recommend" parameter="method" scope="request"
+			type="com.mashup.action.BiaRecommendAction">
+			<set-property property="cancellable" value="false" />
+		</action>
+
+
+		<action parameter="method" path="/user/userCenter"
+			scope="request" type="com.mashup.action.UserAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="userCenter" path="/user/userCenter.jsp" />
+		</action>
+		<action parameter="method" path="/user/commodityCollection"
+			scope="request" type="com.mashup.action.CollectionAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="commodityCollection"
+				path="/user/commodityCollection.jsp" />
+		</action>
+		<action parameter="method" path="/user/accountManagement"
+			scope="request" type="com.mashup.action.UserAction" name="UserForm">
+			<set-property property="cancellable" value="false" />
+			<forward name="accountManagement" path="/user/accountManagement.jsp" />	
+		</action>
+		<action parameter="method" path="/user/friendManagement"
+			scope="request" type="com.mashup.action.FriendAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="friendManagement"
+				path="/user/friendManagement.jsp" />
+		</action>
+
+		<action parameter="method" path="/admin/setup" scope="request"
+			type="com.mashup.action.SetupAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="setup" path="/admin/setup.jsp" />
+		</action>
+
+		<action parameter="method" name="ResourceForm"
+			path="/admin/resource" scope="request"
+			type="com.mashup.action.ResourceManageAction">
+			<set-property property="cancellable" value="false" />
+			<forward name="resource" path="/admin/resource.jsp" />
+		</action>
+
+	</action-mappings>
+
+	<message-resources
+		parameter="com.mashup.resources.ApplicationResources" />
+	<message-resources parameter="com.mashup.resources.MailServerConfig"
+		key="MailProperties" />
+</struts-config>
+

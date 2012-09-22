@@ -1,0 +1,93 @@
+.btnDelete{
+	background:url(../images/btn_delete.bmp);
+	border-style:none;
+	width:80px;
+	height:32px;
+	background-repeat:no-repeat;
+}
+
+
+/* CSS Document */
+
+caption {
+	padding: 0 0 5px 0;
+	width: 680px;	 
+	font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	text-align: right;
+}
+
+.collcTable tr {
+	display:block;
+	background-color:#E6EAE9;
+}
+
+
+
+.collcTable th {
+	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #4f6b72;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	background: #CAE8EA url(../../images/table_bg_header.jpg) no-repeat;
+	
+}
+
+.collcTable th.deleteth {
+	width:90px;
+}
+.collcTable th.nameth {
+	width:360px;
+}
+
+
+.collcTable  th.nobg {
+	border-top: 0;
+	border-left: 0;
+	border-right: 1px solid #C1DAD7;
+	background: none;
+}
+
+
+
+.collcTable  td {
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	
+	font-size:11px;
+	padding: 6px 6px 6px 12px;
+	color: #4f6b72;
+}
+
+td.productName {
+	width:360px;
+	text-align:center;
+	background: #fff url(../../images/bullet2.gif) no-repeat;
+}
+
+td.btn {
+	width:87px;
+	text-align:center;
+	background: #fff url(../../images/bullet1.gif) no-repeat;
+}
+
+th.spec {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #fff url(../../images/bullet1.gif) no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+th.specalt {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #f5fafa url(../../images/bullet2.gif) no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #797268;
+}
+/*---------for IE 5.x bug*/
+html>body td{ font-size:11px;}

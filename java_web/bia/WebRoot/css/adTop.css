@@ -1,0 +1,343 @@
+#topAd {
+	float: left;
+	margin: 2px 0px 10px 0px;
+}
+
+.unselected {
+	display: none;
+}
+
+/* middle */
+.shop-notice-pic {
+	float: left;
+	position: relative;
+	z-index: 1;
+	_height: 1%;
+}
+
+.slide_imgs {
+	position: relative;
+	width: 524px;
+	height: 200px;
+}
+
+.slideItem {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 1;
+}
+
+.slideItem img {
+	display: block;
+	opacity: 1;
+}
+
+.slide-tags {
+	position: absolute;
+	bottom: 2px;
+	left: 2px;
+	height: 30px;
+	background: #000;
+	width: 524px;
+	z-index: 2;
+	filter: alpha(opacity =     70);
+	-moz-opacity: .70;
+	opacity: 0.7;
+}
+
+.slide-tags-t {
+	position: absolute;
+	bottom: 0px;
+	width: 524px;
+	z-index: 3;
+}
+
+.slide-tags-t ol#slide-tags-n li {
+	background:
+		url(http://co.youa.baidu.com/picture/r/mall/sale/images/sprites_mp.png
+) no-repeat -227px -240px;
+	color: #000;
+	cursor: pointer;
+	display: block;
+	float: left;
+	font-weight: bold;
+	margin: 5px;
+	padding: 0 5px;
+}
+
+.slide-tags-t ol#slide-tags-n li.selected {
+	background:
+		url(http://co.youa.baidu.com/picture/r/mall/sale/images/sprites_mp.png
+) no-repeat -227px -278px;
+	color: #a8471c;
+}
+
+.slide-tags-t ol#slide-tags-x {
+	color: #FFFFFF;
+	float: left;
+	font-weight: bold;
+	line-height: 30px;
+	margin-left: 10px;
+	list-style-type: none;
+}
+
+.slide-tags-t ol#slide-tags-n {
+	float: right;
+	height: 30px;
+}
+
+#sale_slide {
+	margin-top: 5px;
+	float: left;
+}
+
+#sale_slide .x2 {
+	background:
+		url(http://co.youa.baidu.com/picture/r/mall/sale/images/cx_bg.png)
+		no-repeat scroll right -265px;
+	display: block;
+	position: relative;
+	height: 2px;
+	margin-top: -2px;
+	width: 780px;
+}
+
+#sale_slide .hd span {
+	background: url(../images/cx_bg.png) no-repeat scroll -90px -61px;
+	height: 30px;
+	display: block;
+	width: 772px;
+}
+
+#sale_slide .adcontent {
+	
+}
+
+#sale_slide .adcontent .con_main {
+	background:
+		url(http://co.youa.baidu.com/picture/r/mall/sale/images/org_bg.png)
+		repeat-x;
+	border: 1px solid #fa9f18;
+	border-top: none;
+	width: 770px;
+	height: 211px;
+}
+
+#sale_slide .adcontent .left {
+	width: 180px;
+	background: #fff;
+	margin-left: 8px;
+	float: left;
+	_margin-left: 4px;
+}
+
+#sale_slide .adcontent .sale_info {
+	height: 202px;
+}
+
+#sale_slide .adcontent span.top {
+	background:
+		url(http://co.youa.baidu.com/picture/r/mall/sale/images/cx_bg.png)
+		no-repeat scroll -486px -223px;
+	height: 2px;
+	width: 180px;
+	display: block;
+	overflow: hidden;
+}
+
+#sale_slide .adcontent  span.bottom {
+	background:
+		url(http://co.youa.baidu.com/picture/r/mall/sale/images/cx_bg.png)
+		no-repeat scroll -667px -223px;
+	height: 2px;
+	width: 180px;
+	display: block;
+	overflow: hidden;
+}
+
+#sale_slide .adcontent .sale_info .sale_list {
+	margin-top: 5px;
+	clear: both;
+	margin: 0 auto;
+	width: 165px;
+}
+
+#sale_slide .adcontent .sale_info .sale_list li {
+	border-top: 1px #a0a0a0 dotted;
+	height: 23px;
+	line-height: 23px;
+	padding-left: 5px;
+}
+
+#sale_slide .adcontent .sale_info .sale_list li a {
+	background:
+		url(http://co.youa.baidu.com/picture/r/mall/sale/images/cx_bg.png)
+		no-repeat scroll -945px -224px;
+	color: #666;
+	padding-left: 8px;
+}
+
+#sale_slide .adcontent .sale_info .sale_list .hot {
+	background:
+		url(http://co.youa.baidu.com/picture/r/mall/sale/images/cx_bg.png)
+		no-repeat scroll -760px -227px;
+}
+
+#sale_slide .adcontent .sale_info .sale_list .new {
+	background:
+		url(http://co.youa.baidu.com/picture/r/mall/sale/images/cx_bg.png)
+		no-repeat scroll -761px -246px;
+}
+
+#sale_slide .adcontent  .middle {
+	float: left;
+	margin-left: 8px;
+	margin-top: 2px;
+	width: 530px;
+}
+
+#sale_slide .adcontent .slideItem img {
+	border: 2px solid #fff;
+}
+
+#instantcard {
+	float: left;
+	width: 190px;
+	height: 190px;
+	margin-left: 20px;
+	margin-top: 5px;
+	border: 0px solid;
+	background: #fff;
+	font-size: 12px;
+	padding: 1px 5px 5px 5px;
+}
+
+#instantcard .btn {
+	background: url(images/sprites_hp.png) 0 -200px repeat-x #e6e6e6;
+	padding: 0px 0px;
+	margin: 0px;
+}
+
+li {
+	list-style: none;
+}
+
+#instantcard .left {
+	float: left;
+	width: 220px;
+}
+
+/*css mojo*/
+.mod {
+	border: 1px solid #d3d2d2;
+	zoom: 1;
+	margin-bottom: 10px;
+}
+
+.mod .x1,.mod .x1a,.mod .x2,.mod .x2a {
+	display: block;
+	height: 2px;
+	background:
+		url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites_hp.png)
+		no-repeat;
+	position: relative;
+}
+
+.mod .x1 {
+	background-position: right -20px;
+	margin: -1px -1px 0 0;
+}
+
+.mod .x1a {
+	float: left;
+	width: 2px;
+	background-position: 0 0;
+	margin-left: -1px;
+	overflow: hidden;
+}
+
+.mod .x2 {
+	background-position: right -22px;
+	margin: 0 -1px -1px 0;
+}
+
+.mod .x2a {
+	float: left;
+	width: 2px;
+	background-position: 0 -2px;
+	margin-left: -1px;
+	overflow: hidden;
+}
+
+.mod .mod-content {
+	
+}
+
+.mod .adhd {
+	background: url(images/sprites_hp.png) 0 -200px repeat-x #e6e6e6;
+	padding: 3px 7px;
+	margin: 1px;
+}
+
+.mod .adhd .act {
+	float: right;
+	font-family: "ËÎÌו";
+}
+
+.mod .adhd .act a {
+	color: #000;
+}
+
+.mod .adhd h3 {
+	color: #7f7f7f;
+	font-weight: bold;
+	background:
+		url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites_hp.png)
+		0 -377px no-repeat;
+	padding-left: 15px;
+	zoom: 1;
+}
+
+.mod .adbd {
+	padding: 5px;
+}
+
+.mod .adbd a {
+	color: #666;
+}
+
+.mod .adbd a.highlight {
+	color: #f60;
+}
+
+#hp-notice .adbd {
+	line-height: 1.6;
+	font-size: 14px;
+	padding: 5px 10px 10px 5px;
+}
+
+#hp-notice .img {
+	float: left;
+	margin: 3px 10px 0 0;
+}
+
+#hp-notice li a {
+	background: url(images/sprites_hp.png) 0 -414px no-repeat;
+	padding-left: 8px;
+	zoom: 1;
+}
+
+#hp-notice li a.highlight {
+	background-position: 0 -454px;
+}
+
+.mod .adhd .act a {
+	color: #666;
+}
+
+.mod .adhd h3 {
+	background:
+		url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites.png)
+		0 3px no-repeat;
+}

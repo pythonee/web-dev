@@ -1,0 +1,130 @@
+.tr,td{
+    line-height:25px;
+	font-size:14px;
+	color: #333;
+}
+.msg {
+	color:#FF3300;
+	}
+.msg2 {
+	color: #006600;
+	}
+.reg_title{
+    text-indent:20px;
+	font-weight:bold;
+}
+.star {
+	color: #FF3300; 
+	font-weight:bold;
+}
+
+.login-form
+{
+	border:1px #C3D9FF solid;
+	padding:10px 0;
+	margin:0px 20px 0px 0px;
+}
+
+.register-form
+{
+	border:1px #C3D9FF solid;
+	padding:10px 0;
+	margin:0px 20px 0px 0px;
+}
+
+.user-form-left {
+	width:25%;
+	text-align:right;
+	font-weight:bold;	
+}
+
+.user-form-input input{
+	width:200px;
+}
+
+.form-btn-line{
+	padding:0px;
+	width:200px;
+	height:20px;
+}
+
+.error {
+	height:20px;
+	border:1px #C3D9FF solid;
+	color:red;
+	background:	#E8EEFA;
+}	
+
+#login-form-line{
+	margin:20px 0 10px 30%;
+}
+
+#register-form-line{
+	margin:20px 0 10px 38%;
+}	
+
+.reset-btn{
+	float:left;
+}
+
+.btnlogintd{
+	width:50%;	
+}
+
+.content-title{
+	height:25px;
+	margin: 0 20px 5px 0;
+	padding-top: 5px;
+	background:#C3D9FF;
+}	
+
+.content-title h3{
+	font-weight:bold;	
+}	
+
+.login-btn{
+	float:left;
+	margin-left:15px;
+}	
+
+.forgot-link{
+	float:left;
+	padding-top:3px;
+	margin-left:20px;	
+}	
+
+.btnreset{
+	background:url(../images/btn_reset.bmp);
+	border-style:none;
+	width:90px;
+	height:30px;
+	background-repeat:no-repeat;
+	margin:2px 2px 2px 2px;
+}
+
+.btnlog{
+	background:url(../images/btn_login.bmp);
+	border-style:none;
+	width:90px;
+	height:30px;
+	background-repeat:no-repeat;
+	margin:2px 2px 2px 2px;
+}
+
+.btnforgot{
+	background:url(../images/btn_forgot.bmp);
+	border-style:none;
+	width:90px;
+	height:30px;
+	background-repeat:no-repeat;
+	margin:2px 2px 2px 20px;
+
+}
+.btnreg{
+	background:url(../images/btn_register.bmp);
+	border-style:none;
+	width:90px;
+	height:30px;
+	margin:2px 2px 2px 2px;
+	background-repeat:no-repeat;
+}

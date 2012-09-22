@@ -1,0 +1,10 @@
+<html>
+    <head>
+      <title>Course List</title>
+    </head>
+    <body>
+		Hello,<font color="red">$username</font><br>
+		Please click $url to activate your account!<br>
+		Thanks!      
+    </body>
+</html>

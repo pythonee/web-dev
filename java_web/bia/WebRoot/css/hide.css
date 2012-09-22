@@ -1,0 +1,44 @@
+.infoWIN {
+	width: 270px;
+	height: 120px;
+	background: url(../images/collect_right.png);
+	border: 0px;
+	float: left;
+	overflow: auto;
+	position: fixed;
+	margin-top:-100px;
+	margin-left:-150px;
+	padding-left:100px;
+	padding-top:100px;
+	top:50%;
+	left:50%;
+}
+
+.car{
+	width: 670px;
+	height: 320px;
+	background: url(../images/car.png);
+	border: 0px;
+	float: left;
+	overflow: auto;
+	position: fixed;
+	margin-top:-200px;
+	margin-left:-335px;
+	padding-left:50px;
+	padding-top:100px;
+	top:50%;
+	left:50%;
+	
+}
+
+.car a{
+	margin:5px 10px 5px 10px; 
+}
+
+#carList{
+	background: url(../images/bg_car.png);
+}
+
+
+
+

@@ -1,0 +1,25 @@
+#logo{
+	position:relative;
+	left:10px;
+	width:950px;
+	height:75px;	
+	background-color:#CCCCCC;
+}
+
+#upnavbar{
+	position:relative;
+	font-size:10px;
+	top:0px;
+	left:10px;
+	width:950px;
+	height:20px;
+	background-color:#FFCCFF;
+}
+#downnavbar{
+	position:relative;
+	font-size:10px;
+	left:10px;
+	width:950px;
+	height:30px;
+	background-color:#FFCCFF;
+}

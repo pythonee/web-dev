@@ -1,0 +1,101 @@
+body {
+	text-align:center;
+	background:#fff;
+	width:1024px;
+}
+
+.clear {
+	clear:both;	
+	width:100%;
+}	
+
+#header {
+	height:65px;
+	width:1024px;
+	text-align:left;
+	margin:auto;
+}
+
+#logo {
+	width:450px;
+	height:65px;
+	float:left;
+	border:1px solid #ccc;
+}
+
+#title {
+	height:40px;
+	width:560px;
+	margin:10px 0 5px 10px;
+	float:left;
+	border:1px solid #ccc;
+	background:#C3D9FF;
+}
+
+#footer {
+	margin:auto;
+	text-align:center;
+	background:#C3D9FF;
+	width:1024px;
+	height:10px;
+}
+
+#main {
+	margin: auto;
+	text-align: left;
+	background: #fff;
+	width:1024px;
+	overflow:visiable;
+}
+
+#left {
+	float:left;
+	width: 750px;
+	border:1px solid #ccc;
+	margin-right:18px;
+}
+
+#right {
+	float: left;
+	width: 256px;
+}
+
+#login {
+	border:1px solid #ccc;	
+}
+
+#require {
+	border:1px solid #ccc;	
+	margin-bottom:10px;
+	paddin:10px;
+}	
+
+#report{
+	border:1px solid #ccc;	
+	margin-bottom:10px;
+	paddin:10px;
+}
+
+#admin {
+	border:1px solid #ccc;	
+	margin-bottom:10px;
+	paddin:10px;
+}
+
+#registe {
+	border:1px solid #ccc;
+	margin:10px 0;	
+}
+
+#screenshot{
+	border:1px solid #ccc;	
+	margin-bottom:10px;
+	paddin:10px;
+}
+
+#sql {
+	border:1px solid #ccc;	
+	margin-bottom:10px;
+	paddin:10px;
+}	
+

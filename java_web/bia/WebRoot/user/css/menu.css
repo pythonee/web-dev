@@ -1,0 +1,49 @@
+
+
+#linkList {
+	float:left;
+	top: 470px;
+	left: 405px;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 10px;
+}
+
+#lselect ul {
+	background: url(../images/menu/03.gif) no-repeat left top;
+	height: 465px;
+	width: 208px;
+	margin: 0;
+	padding: 0;
+}
+
+#lselect li {
+	background: url(../images/menu/04.gif) no-repeat;
+	height: 39px;
+	width: 108px;
+	list-style-type: none;
+	padding: 10px 0 0 55px;
+}
+
+#lselect h3 {
+	background: url(../images/menu/listh1.gif) no-repeat left bottom;
+	width: 208px;
+	height: 50px;
+	margin: 0;
+}
+
+#lselect h3 span {
+	display: none;
+}
+
+
+#lselect a {
+	font-family: Arial, Verdana, sans-serif;
+	display: block;
+	font-size: 16px;
+	color: #063;
+}
+
+#lselect a:hover {
+	color: #633;
+	text-decoration: none;
+}

@@ -1,0 +1,204 @@
+#title h2 {
+	font-weight: bold;
+	padding-top: 12px;
+	font-size: 15px;
+}
+
+#footer ul {
+	list-style: none;
+	display: block;
+	float: left;
+	margin: 0 80px;
+}
+
+#footer li {
+	display: inline;
+	float: left;
+	margin: 0 10px;
+}
+
+#nav {
+	float:left;	
+	border: 1px solid #A8BACD;
+	width:1024px;
+	margin-bottom:10px;
+}	
+
+#nav ul{
+	list-style:none;
+	display:block;
+	float:left;	
+	margin:0 5px;
+}
+
+#nav li {
+	display: inline;
+	float: left;
+	margin-left:10px;
+}
+
+.highlight {
+	color: red;
+	display: block;
+	float: left;
+	margin-right: 3px;
+}
+
+.form_Input input{
+	width:180px;
+}
+
+.form_Left {
+	text-align:right;
+	width:auto;
+}
+
+.sidebar_Title {
+	width : 256px;
+	heigth: 10px;	
+}
+
+.sidebar_Title h2 {
+	font-weight: bold;
+}	
+
+.sidebar_Title h2 {
+	font-weight:bold;
+	font-size: 15px;
+	padding-top:5px;
+}	
+
+#login_Title {
+	background-color: #E8E8E8;
+	border-left: 6px solid #437FBE;
+}	
+
+.btnLine {
+	margin-top:10px;		
+}
+
+.signup_Btn {
+	margin: 10px 0px ;
+	text-align: center;
+}
+
+#login_submit {
+	float:right;
+	margin:0 5px;
+}
+
+#login_reset {
+	float:right;
+}
+
+#registe {
+	background-color: #E8EEFA;
+	border: 1px solid #C3D9FF;
+	border-spacing: 2px 2px;
+	text-align:center;
+}
+#register_form{
+	border: 1px solid #A8BACD;
+	margin-bottom:10px;
+	padding-left: 35%;
+}
+
+#login_submit {
+	float:right;
+	margin:0 5px;
+}
+
+#login_reset {
+	float:right;
+}
+
+#registe_submit{
+	float:left;
+	width:auto;
+	margin:0 5px;
+}
+
+#registe_reset {
+	float:left;
+	width:auto;
+	margin-left:150px;
+}
+
+#ucenter {
+	border: 1px solid #A8BACD;
+	margin-bottom:10px;
+}
+
+#module {
+	border: 1px solid #A8BACD;
+	margin-bottom:10px;
+}
+
+.programmeList {
+	text-align:center;
+	border: 1px solid #ccc;
+}
+
+.programmeList li {
+	display:block;
+	margin:10px 0;	
+}	
+
+.moduleList {
+	text-align:center;
+	border:1px solid #ccc;	
+	margin:10px 0;
+}
+
+#error p{
+	font-color:red;	
+}
+
+.profile_left {
+	text-align:right;
+	width:100px;
+	font-weight:bold;	
+}
+
+.note {
+	border:1px dotted #ccc;
+	line-height:30px;
+}
+
+#InitError {
+	height:300px;
+	text-align:center;
+	vertical-align:middle;
+	line-height:300px;
+	border:1px solid #ccc;
+	margin-bottom:10px;
+}
+
+#InitError p {
+	font-weight:bold;
+	font-size:20px;
+}
+
+#registerTips li
+{	
+	display:inline;
+	magin:0 10px;
+}
+
+#programmeDetails{
+	width:98%;	
+}	
+
+#programmeDetails li{
+	display:block;	
+	margin:15px 0;
+	border:1px solid #ccc;
+	padding:10px;
+}
+
+.sqlStatement {
+	border:1px solid #ccc;
+	padding:10px;
+	width:98%;
+	margin-left:20px;
+}	

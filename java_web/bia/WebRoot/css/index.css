@@ -1,0 +1,73 @@
+#categoryList {
+	margin-top: 2px;
+	margin-bottom: 10px;
+	padding: 0 5px 5px 5px;
+}
+
+#searchfs legend {
+	font-size: 25px;
+	text-align: center;
+}
+
+.cat2-items {
+	border-bottom: dashed 1px #BBBBBB;
+}
+
+.item {
+	background: url("../images/itembg.png") no-repeat;
+	margin-top: 2px;
+}
+.item:hover {
+	background: url("../images/itembg.png") no-repeat;
+	margin-top: 2px;
+	border: 1px solid #65a825;
+}
+.item-title {
+	float: left;
+	font-weight: bold;
+	font-size: 1.5em;
+	background: url(../images/sprite.png) no-repeat scroll -44px 0
+		transparent;
+	display: block;
+	text-align: center;
+	width: 26px;
+	height: 55px;
+	margin: 5px 1px 5px 3px;
+	padding-top: 10px;
+}
+
+.itemImage {
+	float: left;
+	width: 130px;
+	height: 70px;
+	margin: 6px 5px 5px 1px;
+}
+
+.item ul {
+	display: block;
+	margin: 8px 0;
+	float: left;
+	width: 580px;
+}
+
+.item ul li {
+	float: left;
+	list-style: none;
+	display: block;
+	border-left: 1px dotted #ccc;
+	padding: 0 5px;
+	margin: 0;
+	line-height: 30px;
+}
+
+.tit {
+	background: url(../images/class_bg.gif) repeat-x 0px 0px;
+	height: 27px;
+	overflow: ;
+	position: relative;
+}
+
+#middle-flash-content {
+	width: 770px;
+	height: 80px;
+}

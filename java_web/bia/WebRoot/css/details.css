@@ -1,0 +1,478 @@
+/*- Menu Tabs 1--------------------------- */
+
+#productTab{ 
+	width:100%;
+	margin:20px 0 10px 0;
+	float:left;
+}	
+
+#tabs1 {
+	float:left;
+	width:100%;
+	background:#F4F7FB;
+	font-size:93%;
+	line-height:normal;
+	border-bottom:1px solid #BCD2E6;
+}
+#tabs1 ul {
+	margin:0;
+	padding:10px 10px 0 30px;
+	list-style:none;
+}
+#tabs1 li {
+	display:inline;
+	margin:0;
+	padding:0;
+}
+#tabs1 a {
+	float:left;
+	background:url("img/tableft1.gif") no-repeat left top;
+	margin-left:10px;
+	padding:0 0 0 4px;
+	text-decoration:none;
+	border-left:1px solid #66CCFF; 
+	border-right:1px solid #66CCFF; 
+	border-top:1px solid #99FFFF; 
+}
+#tabs1 a span {
+	float:left;
+	display:block;
+	background:url("img/tabright1.gif") no-repeat right top;
+	padding:5px 15px 4px 6px;
+	color:#627EB7;
+}
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#tabs1 a span {float:none;}
+/* End IE5-Mac hack */
+#tabs a:hover span {
+	color:#627EB7;
+}
+#tabs1 a:hover {
+	background-position:0% -42px;
+	background:#d5d5d5; 
+}
+#tabs1 a:hover span {
+	background-position:100% -42px;
+}
+#tabs1 #current a {
+	background-position:0% -42px;
+}
+#tabs1 #current a span {
+	background-position:100% -42px;
+}
+
+#relationProduct{
+	display:none;
+}
+
+
+li{list-style-type:none;}
+
+.left{
+	float:left;
+	width:280px;
+}
+
+.right{
+	float:left;
+	margin-left:10px;
+	width:470px;
+	height:360px;
+}
+
+.share{
+	float:right;
+	margin:5px 0;
+}
+
+.productDesc{
+	margin:20px 0;
+	clear:both;
+}
+
+.details-in-line{
+	margin:20px 0;
+}	
+
+#productDetails{
+	border:1px solid #A8BACD;
+	width:99%;
+	float:left;
+	padding: 0 0 5px 5px;
+}	
+
+#details-product-title{
+	font-weight:bold;
+	margin: 0px;
+	padding-top: 5px;
+	width:auto;
+}
+
+#comment-input {
+	float:left;
+	margin:20px 0;	
+}	
+
+#details-productImg{
+	display:block;
+	float:left;
+	margin-top:10px;
+	border: 2px solid #FF9900;
+}
+
+#details-productSource{
+	float:right;
+}
+
+#level{
+	float:right;
+	clear:both;
+	margin-right:5px;
+}
+
+#details-vs{
+	float:right;
+	margin:20px 0;
+	clear:both;
+}	
+
+#stars{
+	float:left;
+}
+
+#score{
+	width:150px;
+	float:left;
+	margin-left:5px;
+}
+
+#commentStr{
+	width:770px;
+	min-height:100px;
+}
+
+#commentsList{
+	border:1px solid #A8BACD;
+	float:left;	
+}	
+
+#btnComment{
+	background-color:#B9D4FA;
+	height:48px;
+	width:48px;
+	clear:both;
+}
+
+.userProfile{
+	float:left;
+	width:55px;
+}
+
+.comment-user-img{
+	display:block;
+}
+
+.comment-user-name{
+	display:block;	
+}	
+
+.commentItems{
+	float:left;
+	width:100%;
+	margin:5px 0px 2px 2px;
+	
+}
+
+.comment{
+	float:left;
+	margin:0 11px;
+	border:1px #CCDEAF solid;
+	width:680px;
+	min-height:100px;
+	background:#FAFAFA;
+}
+
+.page-middle {
+	padding:0 40%;
+	width:100%;
+	margin:10px 0;
+	float:left;
+}	
+
+.comment-meta-in-line{
+	padding: 5px 0;
+	margin:0 5px;
+	border-bottom: 1px #ccc dotted;	
+}	
+.btnAddFriend {
+	margin-right:5px;
+	float:right;
+}
+
+.comment-content{
+	padding:5px 10px;	
+}	
+
+.content-comment-title {
+	height:25px;
+	margin: 0 0px 5px 0;
+	padding-top: 5px;
+	width:99%;
+	background:#C3D9FF;
+	clear:both;
+}	
+.content-comment-title h3{
+	font-weight:bold;
+}
+
+#relationProduct{
+	float:left;
+	border:1px solid #A8BACD;
+}
+
+.relatedProductItems{
+	float:left;
+	border-bottom:1px dotted #ccc;
+	margin:10px;
+	padding:5px 0;	
+}		
+
+.relatedProductImg{
+	float:left;
+	height:100px;
+}
+
+.relatedProductInfo{
+	float:left;
+	margin-left:15px;
+	height:20px;
+}
+
+.relatedProductLink{
+	float:left;	
+}
+
+.relatedProductPrice{
+	float:left;	
+	margin-left:5px;
+	font-color:red;
+	font-weight:bold;
+}	
+
+.relatedProductDesc{
+	float:left;
+	margin-left:15px;
+	width:630px;
+}
+
+.relatedProductScore{
+	float:right;
+	margin-right:15px;
+}
+
+
+
+
+#pasale {
+	margin-top: 15px;
+}
+
+#pasale .bbp-nav {
+	background: #d9edb8;
+	_padding-left: 1px;
+}
+
+#pasale .bbp-nav li {
+	float: left;
+	font-size: 14px;
+	position: relative;
+	margin-bottom: -8px;
+	margin-left: -1px;
+	background: url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites_hp.png) right -595px no-repeat;
+	left: -1px;
+}
+
+#pasale .bbp-nav li.first {
+	margin-left: 1px;
+	_margin-left: 0;
+}
+
+#pasale .bbp-nav li.last {
+	background-image: none;
+	left: -2px;
+}
+
+#pasale .bbp-nav li a {
+	float: left;
+	padding: 4px 15px 8px 15px;
+	color: #333;
+}
+
+#pasale .bbp-nav li.selected {
+	background: #fff;
+	border: 2px solid #accb7f;
+	top: -4px;
+}
+
+#pasale .bbp-nav li.selected a {
+	color: #2e6100;
+	font-weight: bold;
+	padding: 3px 8px 2px 8px;
+	background: #fff;
+	position: relative;
+	bottom: -3px;
+	outline: none;
+}
+
+#pasale .bbp-nav li.selected a:hover,#pasale .bbp-nav li.selected a:focus
+	{
+	text-decoration: none;
+}
+
+#pasale .bbp-content {
+	border: 2px solid #accb7f;
+	padding: 5px 2px 2px 2px;
+	margin:0;
+	float:left;
+}
+
+#pasale .bbp-content ul {
+	margin: 3px 0 3px 5px;
+}
+
+#pasale .bbp-content li {
+	float: left;
+	width: 70px;
+	padding: 0 8px;
+	text-align: center;
+	border-right: 1px dotted #cecece;
+}
+
+#pasale .bbp-content li img {
+	display: block;
+	margin-bottom: 3px;
+}
+
+#pasale .bbp-content li a {
+	color: #333;
+}
+
+#pasale .bbp-content li.first {
+	padding-left: 0;
+}
+
+#pasale .bbp-content li.last {
+	padding-right: 0;
+	border-right: 0;
+}
+
+#pasale .bbp-content p {
+	background: #f4f4f4;
+	border-top: 1px dotted #cecece;
+	padding: 4px 10px;
+}
+
+#pasale .bbp-content p a {
+	color: #666;
+}
+
+
+
+#pasale {
+	margin-top: 9px;
+	margin-bottom: 13px;
+}
+
+#pasale .bbp-nav {
+	background: #fff;
+	border-bottom: 3px solid #b30024;
+	_margin-right: -15px;
+}
+
+#pasale .bbp-nav li {
+	background: url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites.png) no-repeat 0 -206px;
+	display: block;
+	width: 181px;
+	height: 24px;
+	border: 1px solid #e3e3e3;
+	border-bottom: none;
+	margin-left: 6px;
+	margin-bottom: -3px;
+	font-size: 12px;
+	position: relative;
+}
+
+#pasale .bbp-nav li.first {
+	margin-left: 1px;
+	_margin-left: 0
+}
+
+#pasale .bbp-nav li span {
+	position: absolute;
+	display: block;
+	background: url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/new.gif) no-repeat;
+	width: 24px;
+	height: 18px;
+	right: 15px;
+	top: -8px;
+	overflow: hidden;
+	text-indent: -999px;
+}
+
+#pasale .bbp-nav li a {
+	display: block;
+	float: none;
+	text-align: center;
+	padding: 4px 0 8px 0;
+	_padding-bottom: 0;
+}
+
+#pasale .bbp-nav li.selected {
+	background: url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites.png) no-repeat 0 -167px;
+	border: none;
+	height: 28px;
+	top: -3px;
+	_top: 0px;
+	line-height: 28px;
+}
+
+#pasale .bbp-nav li.selected a {
+	color: #fff;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 0px;
+	background: none;
+	position: relative;
+	bottom: 0px;
+	outline: none;
+}
+
+#pasale .bbp-content {
+	border: 1px solid #e7e7e7;
+	padding: 5px 2px 2px 2px;
+}
+
+#pasale .bbp-content ul {
+	margin: 3px 0px 3px 0px;
+}
+
+#pasale .bbp-content li {
+	width: 123px;
+	height: 141px;
+	padding: 0;
+	text-align: center;
+	border-right: 1px dotted #cecece;
+	position: relative;
+}
+
+
+#pasale .bbp-content li img {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 3px;
+}
+
+#pasale .bbp-content li strong {
+	color: #f30
+}

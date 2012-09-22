@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[log4j]%-40c - %p - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="ROOT" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="c:/debug.log" />
+		<param name="Append" value="false" />
+		<param name="MaxFileSize" value="500KB" />
+		<param name="MaxBackupIndex" value="2" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[log4j]%d - %c - %p - %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="EHCACHE" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="c:/ehcache.log" />
+		<param name="Append" value="false" />
+		<param name="MaxFileSize" value="500KB" />
+		<param name="MaxBackupIndex" value="2" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[log4j]%d - %c - %p - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="DEBUG" />
+			<param name="LevelMin" value="ALL" />
+		</filter>
+	</appender>
+
+	<!-- 以包为单位进行设置 -->
+
+	<category name="com.mashup.action">
+		<level value="debug" />
+		<appender-ref ref="CONSOLE" />
+	</category>
+	
+	<category name="com.mashup.service.impl">
+		<level value="debug" />
+		<appender-ref ref="CONSOLE" />
+	</category>
+
+	<category name="net.sf.ehcache">
+		<level value="OFF" />
+		<appender-ref ref="EHCACHE" />
+	</category>
+
+	<root>
+		<level value="warn" />
+		<appender-ref ref="ROOT" />
+	</root>
+
+</log4j:configuration>

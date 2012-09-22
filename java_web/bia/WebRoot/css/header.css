@@ -1,0 +1,64 @@
+
+#btnsearch{
+	background:url(../images/btn_search.bmp);
+	border-style:none;
+	width:80px;
+	height:30px;
+	background-repeat:no-repeat;
+	margin-right:15px;
+}
+
+
+#box_search{
+	background:url(../images/box_search.bmp);
+	border-style:none;
+	width:330px;
+	height:14px;
+	background-repeat:no-repeat;
+	margin:8px 0px 8px 10px;
+	padding:8px 10px 8px 10px;
+}
+
+#searchform{
+	border-style:none;
+}
+
+#carDiv{
+	display:none;
+}
+#cornerl{
+	float:left;
+	width:230px;
+	height:2px;
+}
+#cornerr{
+	float:left;
+	width:2px;
+	height:2px;
+}
+
+#searchBar{
+	padding-left:100px;
+	height:95px;
+	width:600px;
+	background-repeat:no-repeat;
+}
+
+#topnav{
+	margin-left:1000px;
+	height:40px;
+	width:100%;
+	padding-top:5px;
+	background:url(../images/navBar.bmp);
+	background-repeat:repeat-x;
+}
+
+#header{
+	background:url(../images/headerbg.jpg);
+	margin-bottom:20px;
+}
+
+td.timer{
+	width:90px;
+	height:50px;
+}

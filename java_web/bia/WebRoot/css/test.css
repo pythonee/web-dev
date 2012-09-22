@@ -1,0 +1,42 @@
+/* Copyright (c) 2009, Baidu Inc. All rights reserved. version: 1.0.4.0 */
+/*reset*/
+
+
+
+li{list-style:none;}
+
+#instantcard {font-size:12px;padding-top:1px;}
+
+#instantcard .left {float:left;width:220px;}
+
+/*css mojo*/
+.mod {border:1px solid #d3d2d2;zoom:1;margin-bottom:10px;}
+.mod .x1,.mod .x1a,.mod .x2,.mod .x2a {display:block;height:2px;background:url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites_hp.png) no-repeat;position:relative;}
+.mod .x1 {background-position:right -20px;margin:-1px -1px 0 0;}
+.mod .x1a {float:left;width:2px;background-position:0 0;margin-left:-1px;overflow:hidden;}
+.mod .x2 {background-position:right -22px;margin:0 -1px -1px 0;}
+.mod .x2a {float:left;width:2px;background-position:0 -2px;margin-left:-1px;overflow:hidden;}
+.mod .mod-content {}
+.mod .adhd {background:url(images/sprites_hp.png) 0 -200px repeat-x #e6e6e6;padding:3px 7px;margin:1px;}
+.mod .adhd .act {float:right;font-family:"ËÎÌו";}
+.mod .adhd .act a {color:#000;}
+.mod .adhd h3 {color:#7f7f7f;font-weight:bold;background:url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites_hp.png) 0 -377px no-repeat;padding-left:15px;zoom:1;}
+.mod .adbd {padding:5px;}
+.mod .adbd a {color:#666;}
+.mod .adbd a.highlight {color:#f60;}
+
+
+#hp-notice .adbd {line-height:1.6;}
+#hp-notice .img {float:left;margin:3px 10px 0 0;}
+#hp-notice li a {background:url(images/sprites_hp.png) 0 -414px no-repeat;padding-left:8px;zoom:1;}
+#hp-notice li a.highlight {background-position:0 -454px;}
+
+.cols-1 {margin-top:-1px; _margin-top:0px;}
+.cols-1 .left {float:left;width:220px;}
+
+/*css mojo*/
+
+.mod .adhd .act a {color:#666;}
+.mod .adhd h3 {background:url(http://co.youa.baidu.com/picture/r/mall/hp090617/images/sprites.png) 0 3px no-repeat;}
+
+

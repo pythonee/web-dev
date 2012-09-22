@@ -1,0 +1,150 @@
+#sidebar center {
+	font-size: 12px;
+	height: 25px;
+	padding-top: 5px;
+}
+
+a:focus {
+	outline: none;
+}
+
+.sidebar_title {
+	width:244px;
+	height:25px;
+	font-weight:bold;
+	margin: 5px 0;
+	padding-top: 5px;
+}
+
+.sidebar_list {
+	width :248px;
+	height:100%;
+	margin: 0 0 5px 0;
+	padding: 0px;
+}
+
+.sidebar_ul {
+	list-style:none outside none;
+	margin: 0 8px 0 0;
+	padding: 3px;
+	padding-left:0px;
+}
+
+.sidebar_li {
+	display: block;
+	text-decoration: none;
+	border-bottom: 1px dotted #ccc;
+	padding:5px 0;
+}
+.sidebar_li_selected {
+	display: block;
+	text-decoration: none;
+	border-bottom: 1px dotted #ccc;
+	padding:5px 0;
+}
+.sidebar_li .num{
+	float:left;
+	width:20px;
+	text-align:center;
+	color:orange;
+	font-weight:bold;
+}
+.sidebar_li_selected .num {
+	background:url(../../images/num_bg.png);
+	float:left;
+	width:20px;
+	text-align:center;
+	color:#fff;
+	font-weight:bold;
+}
+.sidebar_li_selected .url span .sidebar_item_img {
+	display : block;
+	float:left;
+}
+.sidebar_item_img
+{
+	margin-right:5px;
+}
+
+.sidebar_right {
+	diplay : block;
+	float:right;
+}
+
+.sidebar_left{
+	diplay : block;
+	float:left;
+}
+
+#sidebar_middle-flash-content {
+	margin: 0 0 5px 0;
+}	
+
+#ad_title {
+	background:#FF9900;
+	padding-left:6px;
+	color:#fff;
+}
+
+#recommand_title {
+	background:#A5DA94;
+	padding-left:6px;
+	color:#437FBE;
+}
+
+#freshComment_title {
+	background: #E8E8E8;
+	padding-left:6px;
+	color:#9DBE43;
+}
+
+#favorite_title {
+	background: #6B90DA;
+	padding-left:6px;
+	color:#fff;
+}	
+
+#sidebar_productList {
+	border : 1px solid #ccc;
+}
+
+#sidebar_commentList {
+	border:1px solid #9DBE43;
+}
+
+#sidebar_favoriteList {
+	border:	1px solid #0086B3;
+}	
+
+ul#sidebar_product_ul .sidebar_li .sidebar_item_img{
+	display : none;
+}
+ul#sidebar_product_ul .sidebar_li a:hover .sidebar_item_img{
+	display : block;
+	float:left;
+}
+
+.corner{
+	width:244px;
+	height:2px;
+	border:0px;
+}
+#cornerl{
+	background:url("../../images/cornerl.png");
+	float:left;
+	width:2px;
+	height:2px;
+}
+#cornerline{
+	float:left;
+	width:240px;
+	height:2px;
+	border-top:1px solid #ccc;
+}
+
+#cornerr{
+	background:url("../../images/cornerr.png");
+	float:left;
+	width:2px;
+	height:2px;
+}

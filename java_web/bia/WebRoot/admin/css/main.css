@@ -1,0 +1,129 @@
+#col3_content{
+	
+	/*background: url(../images/bg_main.png) repeat-x;	*/
+	margin:10px auto;
+}
+
+
+#registerfs{
+	width:500px; 
+	height:200px;
+}
+#forgotfs{
+	width:500px; 
+	height:150px;
+}
+#loginfs{
+	width:500px; 
+	height:150px;
+}
+
+.clear {
+	clear:both;
+}
+
+#hotList{
+	float:left;
+	width:710px;
+	margin:10 10;
+	border:1px #cccccc solid;
+}
+#categoryList{
+	float:left;
+	width:710px;
+	margin:10 10;
+	border:1px #cccccc solid;
+}
+.btnSandC{
+	display:none;
+}
+
+.btnSure{
+	display:none;
+}
+.txtWord{
+ 	display:none;
+}
+
+#btn_batch_delete{
+	background:url(../images/btn_delete.bmp);
+	border-style:none;
+	width:90px;
+	height:30px;
+	background-repeat:no-repeat;
+}
+
+#btnAdd{
+	background:url(../images/btn_add.bmp);
+	border-style:none;
+	width:100px;
+	height:34px;
+	background-repeat:no-repeat;
+}
+
+#btnreset{
+	background:url(../images/btn_reset.bmp);
+	border-style:none;
+	width:100px;
+	height:34px;
+	background-repeat:no-repeat;
+}
+
+.btnresetclass{
+	background:url(../images/btn_reset.bmp);
+	border-style:none;
+	width:100px;
+	height:34px;
+	background-repeat:no-repeat;
+}
+
+#addCate{
+	background:url(../images/btn_add.bmp);
+	border-style:none;
+	width:100px;
+	height:34px;
+	background-repeat:no-repeat;
+}
+#editCate{
+	background:url(../images/btn_edit.bmp);
+	border-style:none;
+	width:100px;
+	height:34px;
+	background-repeat:no-repeat;
+}
+
+#deleteCate{
+	background:url(../images/btn_delete.bmp);
+	border-style:none;
+	width:100px;
+	height:34px;
+	background-repeat:no-repeat;
+}
+
+.btnEditWord{
+	background:url(../images/btn_edit.bmp);
+	border-style:none;
+	width:100px;
+	height:34px;
+	background-repeat:no-repeat;
+}
+
+.btnSure{
+	background:url(../images/btn_sure.bmp);
+	border-style:none;
+	width:100px;
+	height:34px;
+	background-repeat:no-repeat;
+}
+
+.btnSandC{
+	background:url(../images/btn_cancel.bmp);
+	border-style:none;
+	width:100px;
+	height:34px;
+	background-repeat:no-repeat;
+}
+
+#selectFile{
+	
+}

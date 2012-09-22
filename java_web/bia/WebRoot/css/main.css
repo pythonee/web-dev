@@ -1,0 +1,18 @@
+.clear {
+	clear:both;
+}
+
+.highlight{
+	color:green;
+}
+#showinfo{
+	display:block;
+}
+
+#btnAdSearch{
+	background:url(../images/btn_adsearch.bmp);
+	border-style:none;
+	width:80px;
+	height:30px;
+	background-repeat:no-repeat;
+}
