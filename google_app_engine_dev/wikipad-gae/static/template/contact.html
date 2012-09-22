@@ -1,0 +1,42 @@
+<?py include('header.html') ?>
+<script src="/js/bootstrap-alerts.js"></script>
+<script src="/js/bootstrap-buttons.js"></script>
+<script src="/js/submit.js"></script>
+
+<div class="row">
+  <div class="span14">
+    <div class="info"></div>
+    <form action="#{{BLOG_HOME_RELATIVE_PATH}}contact" method="POST"
+      class="ajax-form">
+      <fieldset>
+        <legend>Contact Form</legend>
+        <div class="clearfix">
+          <label for="xlInput">Your Email</label>
+          <div class="input">
+            <input class="xlarge" id="from" name="from" size="30" type="text">
+          </div>
+        </div>
+        <div class="clearfix">
+          <label for="xlInput">Subject</label>
+          <div class="input">
+            <input class="xlarge" id="subject" name="subject" size="30" type="text">
+          </div>
+        </div>
+        <div class="clearfix">
+          <label for="xlInput">Content</label>
+          <div class="input">
+            <textarea class="span9" id="content" name="content" rows="15"
+              cols="120"></textarea>
+          </div>
+        </div>
+        <div class="actions">
+        <button type="submit" id="submit-btn" class="btn large primary"
+          data-loading-text="sending">Send</button>
+        <button type="reset" class="btn large cancel-btn">Reset</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<?py include('footer.html') ?>

@@ -1,0 +1,30 @@
+<div class="actions">
+  <?py if page == "admin_delete_article": ?>
+  <button type="submit" id="submit-btn" class="btn large danger"
+    data-loading-text="deleting..." >Delete</button>
+  <?py elif page == "admin_edit_article": ?>
+  <button type="submit" id="submit-btn" class="btn large primary"
+    data-loading-text="updating..." >Update</button>
+  <?py else: ?>
+  <button type="submit" id="submit-btn" class="btn large primary"
+    data-loading-text="posting..." >Publish</button>
+  <?py #endif ?>
+  <button  data-controls-modal="cancel-modal" data-backdrop="true"
+    type="button" class="btn large cancel-btn">Cancel</button>
+</div>
+
+<div id="cancel-modal" class="modal hide fade" style="display:none;">
+  <div class="modal-header">
+    <a href="#" class="close">x</a>
+    <h6 style="color:red">Warning: Are you sure</h6>
+  </div>
+  <div class="modal-body">
+    <p><strong>Before Leave this page, Make sure you have saved
+      everything</strong></p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn large cancel-modal-yes">Leave</button>
+    <button type="button" class="btn large cancel-modal-no">Stay here</button>
+  </div>
+</div> <!-- /cancel modal -->
+

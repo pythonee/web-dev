@@ -1,0 +1,86 @@
+<?py include('header.html') ?>
+<script src="/js/bootstrap-alerts.js"></script>
+<script src="/js/bootstrap-buttons.js"></script>
+
+<div class="row">
+  <div class="span14">
+    <div class="info">
+      <div class="alert-message block-message warning fade in" data-alert="alert">
+        <a class="close" href="#">×</a>
+        <p><strong>#{msg}</strong></p>
+      </div>
+    </div>
+    <form action="#{{BLOG_ADMIN_RELATIVE_PATH}}calendar-token" method="GET"
+      id="token-form">
+      <fieldset>
+        <legend>Get Calendar Token</legend>
+        <div class="clearfix">
+          <label for="xlInput">Calendar Feed</label>
+          <div class="input">
+            <input class="xxlarge" id="feed" name="feed" type="text"
+            value="#{token.feed if token else GOOGLE_CALENDAR_PRIVATE_FEED}">
+          </div>
+        </div>
+        <div class="actions">
+          <?py 	if token: ?>
+          <div>
+            <button type="submit" id="submit-btn" class="btn large primary" data-loading-text="sending">Get</button>
+            <button type="submit" id="del-token-btn" class="btn large danger" data-loading-text="deleting">Delete</button>
+          </div>
+          <?py 	else: ?>
+          <div> <button type="submit" id="submit-btn" class="btn large primary" data-loading-text="sending">Get</button></div>
+          <?py 	#endif ?>
+        </div>
+      </fieldset>
+    </form>
+
+    <?py if token: ?>
+      <form action="#{{BLOG_ADMIN_RELATIVE_PATH}}send-whether-sms" method="GET"
+        id="sms-form">
+        <fieldset>
+        <div class="actions">
+          <div>
+            <button type="submit" id="sms-btn" class="btn large primary"
+              data-loading-text="sending">Send Wether Now</button>
+          </div>
+        </div>
+        </fieldset>
+      </form>
+    <?py #endif ?>
+  </div>
+</div>
+
+<script>
+  $(function()
+  {
+    $('#del-token-btn').click(
+    function(){
+      $.ajax({
+        'url' : $('#token-form').attr('action'),
+        'type': 'POST',
+				'error': function(){
+          msgbbox('Fatal Error');
+				},
+        'success': function(){msgbbox('have delete token');},
+				'timeout': 100000
+      })
+      return false;
+    });
+
+    $('#sms-btn').click(
+      function(){
+        $.ajax({
+          'url' : $('#sms-form').attr('action'),
+          'type' : $('#sms-form').attr('method'),
+          'error': function(){
+            msgbbox('Fatal Error');
+          },
+          'success': function(){msgbbox('have send weather msg to you');},
+          'timeout': 100000
+        })
+        return false;
+      })
+  })
+</script>
+
+<?py include('footer.html') ?>

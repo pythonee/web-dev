@@ -1,0 +1,16 @@
+<?py include('../header.html') ?>
+
+<script src="/js/submit.js"></script>
+
+<div class="row">
+  <div class="span14">
+    <div class="info"></div>
+    <h4><a href="#{{BLOG_HOME_RELATIVE_PATH}}#{quoted_url(article.url)}">#{article.title}</a></h4>
+    <div class="article-content">#{article.html_teaser()}</div>
+    <form action="" method="POST" class="ajax-form">
+      <?py include('cancel_modal.html') ?>
+    </form>
+  </div>
+</div>
+
+<?py include('../footer.html') ?>

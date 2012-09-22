@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                        http://www.springframework.org/schema/security 
+                        http://www.springframework.org/schema/security/spring-security-2.0.1.xsd"
+	default-lazy-init="true">
+	 
+ 	<http access-denied-page="/403.jsp" lowercase-comparisons="false" path-type="ant"> 
+		
+		<!-- 只有admin用户可以访问admin下的所有文件 -->
+		<intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
+		
+		<!-- 只要是登录用户就可以访问user目录下的所有文件 -->
+		<intercept-url pattern="/user/**"
+			access="IS_AUTHENTICATED_FULLY" />
+			
+		<!-- 网站根目录不需要权限验证 -->
+		<intercept-url pattern="/**" filters="none" />
+		
+		<!-- 登录表单处理，login-page是登录页面 -->
+		<intercept-url pattern="/" access="ROLE_ANONYMOUS" />
+		<form-login login-page="/login.jsp"
+			authentication-failure-url="/login.jsp?error=true"
+			default-target-url="/index.jsp" />
+
+		<logout logout-success-url="/index.jsp" />
+			
+		<!-- 登出处理，logout-success-url为登出后跳转的页面 -->	
+		<logout logout-success-url="/index.jsp"
+			invalidate-session="true" />
+
+		<http-basic />
+
+		<!-- 持久登录，默认为两周 -->
+		<remember-me data-source-ref="DataSource" />
+
+		
+		<!-- 同步session,不允许重复登录 -->
+		<concurrent-session-control max-sessions="1" />
+	</http>
+	
+	<authentication-manager alias="authenticationManager" />
+
+	<authentication-provider user-service-ref="SecurityManagerSupport">  
+         <password-encoder ref="md5PasswordEncoder">
+         	<salt-source user-property="username"/>
+         </password-encoder>
+     </authentication-provider>
+
+	<!-- 访问决策者 -->
+	<beans:bean id="accessDecisionManager"
+		class="org.springframework.security.vote.AffirmativeBased">
+		<beans:property name="allowIfAllAbstainDecisions" value="false" />
+		<beans:property name="decisionVoters">
+			<beans:list>
+				<beans:bean
+					class="org.springframework.security.vote.RoleVoter" />
+				<beans:bean
+					class="org.springframework.security.vote.AuthenticatedVoter" />
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<beans:bean id="resourceSecurityInterceptor" class="org.springframework.security.intercept.web.FilterSecurityInterceptor">  
+        <beans:property name="authenticationManager" ref="authenticationManager"/>  
+        <beans:property name="accessDecisionManager" ref="accessDecisionManager"/>  
+        <beans:property name="objectDefinitionSource" ref="securityResourceFilterInvocationDefinitionSource" />  
+        <beans:property name="observeOncePerRequest" value="false" />  
+        <custom-filter after="LAST" />  
+    </beans:bean>  
+      
+    <beans:bean id="securityResourceFilterInvocationDefinitionSource" class="com.mashup.utils.SecurityResourceFilterInvocationDefinitionSource">
+    	<beans:property name="securityManager">
+    		<beans:ref bean="SecurityManagerSupport" />
+    	</beans:property>
+    </beans:bean>  
+	
+	<!-- 用户缓存设置 -->
+	<beans:bean id="userCache"
+		class="org.springframework.security.providers.dao.cache.EhCacheBasedUserCache">
+		<beans:property name="cache" ref="userEhCache" />
+	</beans:bean>
+
+	<beans:bean id="userEhCache"
+		class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<beans:property name="cacheManager" ref="cacheManager" />
+		<beans:property name="cacheName" value="userCache" />
+	</beans:bean>
+
+	<beans:bean id="cacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" />
+	
+	<!-- spring security 的消息源 -->
+	<beans:bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<beans:property name="basename"
+			value="/com/mashup/resources/SpringSecurityMessageSource_zh_CN" />
+	</beans:bean>
+
+	<beans:bean id="md5PasswordEncoder"
+		class="org.springframework.security.providers.encoding.Md5PasswordEncoder" />
+		
+		
+</beans:beans>

@@ -1,0 +1,24 @@
+<?py include('header.html') ?>
+
+<script type="text/javascript" src="/js/loadmore.js"></script>
+
+<div class="row">
+  <div class="span10 loadmore">
+    <?py if articles: ?>
+    <?py for article in articles: ?>
+      <?py include('article.html', article=article) ?>
+    <?py #endfor ?>
+      <?py if next_cursor: ?>
+      <div id="cursor" style="display:none"><a
+          href="#{{BLOG_HOME_RELATIVE_PATH}}tag/#{quoted_url(tag_name)}?cursor=#{next_cursor}"></a></div>
+      <?py else: ?>
+        <div style="display:none">last page no more article</div>
+      <?py #endif ?>
+    <?py else: ?>
+    <h4>no artile found in this tag</h4>
+    <?py #endif ?>
+  </div>
+  <?py include('sidebar.html') ?>
+</div>
+
+<?py include('footer.html') ?>

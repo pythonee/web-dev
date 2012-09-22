@@ -1,0 +1,98 @@
+<?py article_id = article.key().id() ?>
+<div class="post-container">
+  <div class="post-content">
+    <h2 class="article-title">
+      <a href='#{{BLOG_HOME_RELATIVE_PATH}}#{quoted_url(article.url)}'> #{article.title} </a>
+    </h2>
+
+    <div class="article-meta">
+      <span>Published on:</span>
+      <span><a href='#{quoted_url(article.url)}'>#{article.time}</a></span>
+      <?py if request.is_admin: ?>
+      <span class="pull-right">
+        <a href="#{{BLOG_ADMIN_RELATIVE_PATH}}article/delete/#{article_id}"
+          target="_blank">delete</a>
+      </span>
+      <span class="pull-right article-edit-link">
+        <a href="#{{BLOG_ADMIN_RELATIVE_PATH}}article/edit/#{article_id}"
+          target="_blank">edit</a>
+      </span>
+      <?py #endif ?>
+    </div>
+
+    <?py if page != 'single_article': ?>
+    <div class="article-content">
+      #{article.html_teaser()}
+      <?py if article.is_not_end(): ?>
+      <div class="readmore"><a
+          href="#{{BLOG_HOME_RELATIVE_PATH}}#{quoted_url(article.url)}">Read
+          more...</a></div>
+      <?py #endif ?>
+    </div>
+    <?py else: ?>
+    <div class="article-content">
+      #{article.html_content()}
+    </div>
+    <?py #endif ?>
+
+    <div class="article-bar">
+      <span>Category:</span>
+      <?py if article.category: ?>
+      <span>
+        <a
+          href='#{{BLOG_HOME_RELATIVE_PATH}}category/#{quoted_url(article.category_name())}'>
+          #{article.category_name()}
+        </a>
+      </span>
+      <?py else: ?>
+      <span>None</span>
+      <?py #endif ?>
+
+      <?py if page != 'search_result': ?>
+        <span class="divider">|</span>
+        <span> Tags:</span>
+        <?py if article.tags: ?>
+        <?py for tag in article.tags: ?>
+        <span>
+          <a href='#{{BLOG_HOME_RELATIVE_PATH}}tag/#{quoted_url(tag)}'>#{tag}</a>
+        </span>
+        <?py #endfor ?>
+        <?py else: ?>
+        <span>None</span>
+        <?py #endif ?>
+      <?py #endif ?>
+
+
+      <span class="pull-right">
+        <a href='#{{BLOG_HOME_RELATIVE_PATH}}#{quoted_url(article.url)}#disqus_thread'
+           data-disqus-identifier="#{article_id}" >
+         View Comments
+        </a>
+      </span>
+    </div>
+  </div>
+</div><!-- /post-container -->
+
+<?py if page=='single_article': ?>
+  <?py
+    for _ in cache_as('nearby_articles:%s' % article_id, ARTICLE_CACHE_TIME):
+    previous_article, next_article = article.nearby_articles(article.published)
+    if previous_article or next_article:
+  ?>
+		<p class="post-nav">
+  <?py if previous_article: ?>
+      <span class="previous btn"><a
+          href="#{{BLOG_HOME_RELATIVE_PATH}}#{quoted_url(previous_article.url)}"
+          rel="prev" title="#{previous_article.title}"><em>Prev</em> ${previous_article.title}</a></span>
+  <?py
+		#endif
+		if next_article:
+  ?>
+      <span class="next btn"><a
+          href="#{{BLOG_HOME_RELATIVE_PATH}}#{quoted_url(next_article.url)}"
+          rel="next" title="#{next_article.title}"><em>Next</em> ${next_article.title}</a></span>
+  <?py #endif ?>
+		</p>
+  <?py #endif ?>
+<?py #endfor ?>
+<?py #endif ?>

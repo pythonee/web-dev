@@ -1,0 +1,56 @@
+      </div><!-- /content -->
+
+      <!-- begin footer -->
+      <footer id="footer">
+      <div class="row">
+        <div class="span8">
+          <ul class="py-breadcrumb">
+            <li><a href="#">About Me</a> <span class="divider">|</span></li>
+            <li><a href="https://github.com/pythonee/wikipad-gae" target="_blank">Source code</a></li>
+          </ul>
+        </div> <!-- /span8 -->
+        <div class="span6">
+          <form class="pull-right" action="/search" method="GET">
+            <input type="text" placeholder="Search" name="q">
+            <button class="btn" type="submit">Search</button>
+          </form>
+        </div> <!-- /span6 -->
+      </div> <!-- /row -->
+      <p>
+        Design by <a href="#{{BLOG_HOME_RELATIVE_PATH}}">Pythonee</a> <br>
+        Power by 
+        <a href="http://code.google.com/appengine/" target="_blank">GAE</a>,
+        <a href="https://github.com/pythonee" target="_blank">Github</a>, 
+        <a href="http://python.org" target="_blank">Python</a>,
+        <a href="http://www.vim.org" target="_blank">Vim</a> <br>
+      </p>
+
+      <p class="backtotop">
+        <a href="#">Top</a>
+      </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <script type="text/javascript" src="/js/msgbox.js"></script>
+
+    <?py if not page.startswith('admin') and page != 'error': ?>
+      <?PY if GOOGLE_ANALYTICS_ID: ?>
+      <script src="#{'http://www' if request.scheme == 'http' else 'https://ssl'}.google-analytics.com/ga.js"></script>
+      <script>
+        _gaq.push(['_trackEvent', 'LoadTime', '${request.client_ip}', '#{request.path_qs}', new Date() - _gaq_start]);
+        <?py if hasattr(request, 'current_user') and request.current_user: ?>
+          _gaq.push(['_setCustomVar', 1, 'user', '${request.current_user.name}']);
+        <?py #endif ?>
+      </script>
+      <?PY #endif ?>
+    <?py #endif ?>
+
+    <?py if page == 'single_article': ?>
+      <script type="text/javascript">
+        MathJax.Hub.Configured()
+      </script>
+    <?py #endif ?>
+
+  </body>
+</html>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+	<bean id="UserService" class="com.mashup.service.impl.UserService"
+		scope="prototype">
+		<property name="userDAO">
+			<ref bean="UserDAO" />
+		</property>	
+		<property name="findPasswordSupport">
+			<ref bean="FindPasswordMailSupport" />
+		</property>
+		<property name="activateMailSupport">
+			<ref bean="ActivationMailSupport" />
+		</property>
+		<property name="userRoleDAO">
+			<ref bean="UserRoleDAO" />
+		</property>
+		<property name="md5Encoder">
+			<ref bean="md5PasswordEncoder" />
+		</property>
+		
+	</bean>  
+
+	<bean id="AdvertiseService"
+		class="com.mashup.service.impl.AdvertiseService">
+		<property name="advertiseDAO">
+			<ref bean="AdvertiseDAO" />
+		</property>
+	</bean>
+
+	<bean id="CategoryService"
+		class="com.mashup.service.impl.CategoryService">
+		<property name="categoryDAO">
+			<ref bean="CategoryDAO" />
+		</property>
+	</bean>
+	<bean id="AdcategoryService"
+		class="com.mashup.service.impl.AdcategoryService">
+		<property name="adcategoryDAO">
+			<ref bean="AdcategoryDAO" />
+		</property>
+	</bean>
+	<bean id="CommentService"
+		class="com.mashup.service.impl.CommentService">
+		<property name="commentDAO">
+			<ref bean="CommentDAO" />
+		</property>
+	</bean>
+	<bean id="CollectionService"
+		class="com.mashup.service.impl.CollectionService">
+		<property name="collectionDAO">
+			<ref bean="CollectionDAO" />
+		</property>
+	</bean>
+	<bean id="FriendService"
+		class="com.mashup.service.impl.FriendService">
+		<property name="friendDAO">
+			<ref bean="FriendDAO" />
+		</property>
+		<property name="userDAO">
+			<ref bean="UserDAO" />
+		</property>
+	</bean>
+	<bean id="ProductService"
+		class="com.mashup.service.impl.ProductService">
+		<property name="productDAO">
+			<ref bean="ProductDAO" />
+		</property>
+	</bean>
+	<bean id="SearchService"
+		class="com.mashup.service.impl.SearchService">
+	</bean>
+	<bean id="CategoryMapFromDB"
+		class="com.mashup.search.CategoryMapFromDB" scope="singleton">
+		<property name="productService">
+			<ref bean="ProductService" />
+		</property>
+		<property name="categoryService">
+			<ref bean="CategoryService" />
+		</property>
+	</bean>
+	
+	<bean id="SensWordService" class="com.mashup.service.impl.SensWordService">
+		<property name="sensitivewordDAO">
+			<ref bean="SensitivewordDAO" />
+		</property>
+	</bean>
+	
+	<bean id="SecurityManagerSupport"
+		class="com.mashup.service.impl.SecurityManagerSupport">
+		<property name="userDAO">
+			<ref bean="UserDAO"/>
+		</property>
+		<property name="resourcesDAO">
+			<ref bean="ResourcesDAO" />
+		</property>
+	</bean>
+	
+	<bean id="UserRoleService" class="com.mashup.service.impl.UserRoleService"
+		scope="prototype">
+		<property name="userRoleDAO">
+			<ref bean="UserRoleDAO" />
+		</property>
+	</bean> 
+	
+	<bean id="TrackService" class="com.mashup.service.impl.TrackService">
+		<property name="trackDAO">
+			<ref bean="TrackDAO"/>
+		</property>
+	</bean>
+	
+	<bean id="IpTrackService" class="com.mashup.service.impl.IpTrackService">
+		<property name="ipTrackDAO">
+			<ref bean="IpTrackDAO"/>
+		</property>
+	</bean>
+	
+	<bean id="TaoBaoSpider" class="com.mashup.spider.TaoBaoSpider" scope="singleton">
+			<property name="categoryMapFromDB">
+				<ref bean="CategoryMapFromDB"/>
+			</property>
+	</bean>
+	<bean id="ebaySpider" class="com.mashup.spider.eBaySpider" scope="singleton">
+			<property name="categoryMapFromDB">
+				<ref bean="CategoryMapFromDB"/>
+			</property>
+	</bean>
+	
+	<bean id="ResourceService" class="com.mashup.service.impl.ResourceService">
+		<property name="resourcesDAO">
+			<ref bean="ResourcesDAO" />
+		</property>
+		<property name="resourcesRoleDAO">
+			<ref bean="ResourcesRoleDAO" />
+		</property>
+	</bean>
+	
+	<bean id="RoleService" class="com.mashup.service.impl.RoleService">
+		<property name="roleDAO">
+			<ref bean="RoleDAO" />
+		</property>
+	</bean>
+	
+	<bean id="ProductPreferenceService" class="com.mashup.service.impl.ProductPreferenceService">
+		<property name="productPreferenceDAO">
+			<ref bean="ProductPreferenceDAO" />
+		</property>
+	</bean>
+
+</beans>

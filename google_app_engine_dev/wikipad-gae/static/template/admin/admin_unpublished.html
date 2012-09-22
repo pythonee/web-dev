@@ -1,0 +1,59 @@
+<?py include('../header.html') ?>
+
+<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+<script>
+  $(function(){
+    $('#articles-table').dataTable(
+        {
+          "aaSorting": [[ 1, "asc" ]],
+          "aoColumns": [
+                        { "bSortable": false },
+                        null,
+                        null,
+                        { "bSortable": false },
+                       ],
+        });
+  })
+</script>
+
+<div class="row">
+  <div class="span14">
+    <h2>Unpublished Articles</h2>
+      <table class="zebra-striped" id="articles-table">
+        <thead>
+          <tr>
+          <th><input type="checkbox"></th>
+          <th class="yellow header">article title</th>
+          <th class="green header">published time</th>
+          <th class="blue">edit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?py for article in articles: ?>
+        <tr>
+          <td><input type="checkbox" name='article_ids' value="#{article.key().id()}"></td>
+          <td><a href='#{{BLOG_HOME_RELATIVE_PATH}}#{quoted_url(article.url)}'> #{article.title}</a></td>
+          <td>  #{article.time} </td>
+          <td>
+            <span><a href="#{{BLOG_ADMIN_RELATIVE_PATH}}article/edit/#{article.key().id()}">edit</a></span>
+            <span><a
+                href="#{{BLOG_ADMIN_RELATIVE_PATH}}article/delete/#{article.key().id()}"
+                style="color:red">delete</a></span>
+          </td>
+        </tr>
+        <?py #endfor ?>
+        </tbody>
+        <tfoot>
+          <tr>
+          <th><input type="checkbox"></th>
+          <th class="yellow header">article title</th>
+          <th class="green header">published time</th>
+          <th class="blue">edit</th>
+        </tr>
+        </tfoot>
+      </table> <!-- /articles-table -->
+      <div class="spacer"></div>
+  </div> <!-- /span14 -->
+</div> <!-- /row -->
+
+<?py include('../footer.html') ?>

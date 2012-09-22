@@ -1,0 +1,63 @@
+<?py include('../header.html') ?>
+
+<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/js/articles.manage.js"></script>
+
+<div class="row">
+  <div class="span14" style="width:1020px;">
+    <h2>Batch Delete Articles</h2>
+    <form action="#{{BLOG_ADMIN_RELATIVE_PATH}}articles/delete/" method="POST"
+      id="del-posts-form">
+      <fieldset>
+        <table class="zebra-striped" id="articles-table">
+          <thead>
+            <tr>
+            <th class><input type="checkbox"></th>
+            <th class="yellow header">article title</th>
+            <th class="green header">published time</th>
+            <th class="blue header">article category</th>
+            <th class="orange header">article tag</th>
+          </tr>
+          </thead>
+          <tbody>
+          <?py for article in articles: ?>
+          <tr>
+            <td><input type="checkbox" name='article-ids' value="#{article.key().id()}"></td>
+            <td><a href="#{{BLOG_HOME_RELATIVE_PATH}}#{quoted_url(article.url)}">#{article.title}</a></td>
+            <td>  #{article.time} </td>
+            <td>  #{article.category_name()} </td>
+            <td> #{','.join(article.tags)} </td>
+          </tr>
+          <?py #endfor ?>
+          </tbody>
+          <tfoot>
+            <tr>
+            <th class><input type="checkbox"></th>
+            <th class="yellow header">article title</th>
+            <th class="green header">published time</th>
+            <th class="blue header">article category</th>
+            <th class="orange header">article tag</th>
+          </tr>
+          </tfoot>
+        </table> <!-- /articles-table -->
+        <div class="spacer"></div>
+        <span id="previous-span" style="display:none">
+          <a href="" class="get-json">previous</a>
+        </span>
+        <?py if next_cursor: ?>
+        <span id="more-span"><a
+            href="#{{BLOG_ADMIN_RELATIVE_PATH}}post-json?from=#{next_cursor}"
+            class="get-json">more</a></span>
+        <?py #endif ?>
+        <div class="actions">
+          <button type="submit" class="btn large danger" id="del-posts-btn"
+            data-loading-text="posting...">Delete</button>
+          <button  data-controls-modal="cancel-modal" data-backdrop="true"
+            type="button" class="btn large cancel-btn">Cancel</button>
+        </div>
+      </fieldset>
+    </form> <!-- /batch delete form -->
+  </div> <!-- /span14 -->
+</div> <!-- /row -->
+
+<?py include('../footer.html') ?>

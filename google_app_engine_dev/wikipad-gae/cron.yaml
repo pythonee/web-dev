@@ -1,0 +1,12 @@
+cron:
+- description: generate sitemap
+  url: /admin/generate-sitemap/
+  schedule: every 24 hours
+
+- description: warmup
+  url: /_ah/warmup/
+  schedule: every 10 minutes
+
+- description: send whether sms
+  url: /admin/send-whether-sms
+  schedule: every 3 hours from 07:30 to 19:30

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	  					  http://www.springframework.org/schema/beans/spring-beans.xsd"
+	   default-lazy-init="true">
+
+	<!-- 激活用户邮件支持类 -->
+	<bean id="ActivationMailSupport" parent="VelocityMailSupport">
+		<property name="subject">
+			<value>${mail.activation.subject}</value>
+		</property>
+		<property name="templateName">
+			<value>${mail.activation.template}</value>
+		</property>
+	</bean>
+	
+	<!-- 发布商品广告邮件类 -->
+	<bean id="BiaAdvertise" parent="VelocityMailSupport">
+		<property name="subject">
+			<value>${mail.advertise.subject}</value>
+		</property>
+		<property name="templateName">
+			<value>${mail.advertise.template}</value>
+		</property>
+	</bean>
+	
+	<!-- 找回用户密码邮件类 -->
+	<bean id="FindPasswordMailSupport" parent="VelocityMailSupport">
+		<property name="subject">
+			<value>${mail.findPassword.subject}</value>
+		</property>
+		<property name="templateName">
+			<value>${mail.findPassword.template}</value>
+		</property>
+	</bean>
+</beans>
+	

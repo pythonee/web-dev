@@ -1,0 +1,141 @@
+<?py include('../header.html') ?>
+
+<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/js/tags.manage.js" charset="UTF-8"></script>
+
+<div class="row">
+  <div class="span14">
+    <h2>Tags manage</h2>
+    <div class="spacer"></div>
+    <ul class="tabs">
+      <li class="active"><a href="#delete">Delete</a></li>
+      <li><a href="#add">Add</a></li>
+      <li><a href="#rename">Rename</a></li>
+      <li><a href="#sync">Sync</a></li>
+    </ul>
+
+    <div class="pill-content">
+      <div class="active" id="delete">
+        <form action="#{{BLOG_ADMIN_RELATIVE_PATH}}tags/delete/" method="POST"
+          id="del-tags-form">
+          <fieldset>
+            <table class="zebra-striped" id="tag-table">
+              <thead>
+                <tr>
+                  <th class><input type="checkbox"></th>
+                  <th class="yellow header">tag name</th>
+                  <th class="blue header">tag count</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?py for tag in tags: ?>
+                <?py tag_name =tag.key().name() ?>
+                <tr>
+                  <td><input type="checkbox" name="tag" value="#{ tag_name }"></td>
+                  <td> #{ tag_name } </td>
+                  <td> #{tag.count} </td>
+                </tr>
+                <?py #endfor ?>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th class><input type="checkbox"></th>
+                  <th class="yellow">tag name</th>
+                  <th class="blue">tag count</th>
+                </tr>
+              </tfoot>
+            </table> <!-- /tag-table -->
+            <div class="spacer"></div>
+            <div class="actions">
+              <button type="submit" class="btn large danger" id="del-tags-btn"
+                data-loading-text="posting...">Delete</button>
+              <button  data-controls-modal="cancel-modal" data-backdrop="true"
+                type="button" class="btn large cancel-btn">Cancel</button>
+
+            </div>
+          </fieldset>
+        </form> <!-- /batch delete form -->
+      </div> <!-- delete tab -->
+
+      <div id="rename">
+        <form action="#{{BLOG_ADMIN_RELATIVE_PATH}}tag/rename/" method="POST"
+          id="rename-tag-form">
+          <fieldset>
+            <div class="clearfix">
+              <label for="xlInput">Original name:</label>
+              <div class="input">
+                <select name="original_name" id="original-name">
+                  <?py for tag in tags: ?>
+                  <?py tag_name = tag.key().name() ?>
+                  <option value="#{tag_name}">#{tag_name}</option>
+                  <?py #endfor ?>
+                </select>
+              </div>
+            </div>
+            <div class="clearfix">
+              <label for="xlInput">To:</label>
+            </div>
+            <div class="clearfix">
+              <label for="xlInput">Target name:</label>
+              <div class="input">
+                <input class="large" id="dest_name" name="dest_name" size="30" type="text">
+              </div>
+            </div>
+            <div class="actions">
+              <button type="submit" class="btn large primary" id="rename-submit-btn"
+                datat-loading-text="posting...">Rename</button>
+              <button  data-controls-modal="cancel-modal" data-backdrop="true"
+                type="button" class="btn large cancel-btn">Cancel</button>
+            </div>
+          </fieldset>
+        </form>
+      </div> <!-- rename tab -->
+
+      <div id="add">
+        <form action="#{{BLOG_ADMIN_RELATIVE_PATH}}tags/add/" method="POST"
+          id="add-tag-form">
+          <fieldset>
+            <div class="clearfix">
+              <label for="xlInput">Tag name:</label>
+              <div class="input">
+                <input class="xlarge" id="new_tag_name" name="tag_name" size="30" type="text">
+                <span class="help-block">split tags with ','</span>
+              </div>
+            </div>
+            <div class="actions">
+              <button type="submit" class="btn large primary" id="add-submit-btn"
+                data-loading-text="posting...">add</button>
+              <button  data-controls-modal="cancel-modal" data-backdrop="true"
+                type="button" class="btn large cancel-btn">Cancel</button>
+            </div>
+          </fieldset>
+        </form>
+      </div> <!-- add tab -->
+
+      <div id="sync">
+        <form action="#{{BLOG_ADMIN_RELATIVE_PATH}}tag/sync/" method="GET"
+          id="sync-tag-form">
+          <fieldset>
+          <legend>Synchronous tags in Tag model with Article Model</legend>
+            <div class="actions">
+              <button type="submit" class="btn large primary" id="sync-submit-btn"
+                data-loading-text="posting...">Sync</button>
+              <button  data-controls-modal="cancel-modal" data-backdrop="true"
+                type="button" class="btn large cancel-btn">Cancel</button>
+            </div>
+          </fieldset>
+        </form>
+      </div> <!-- sync -->
+
+    </div> <!-- tabs -->
+
+    <script>
+      $(function () {
+        $('.tabs').tabs()
+      })
+    </script>
+
+  </div> <!-- /span14 -->
+</div> <!-- /row -->
+
+<?py include('../footer.html') ?>

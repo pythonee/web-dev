@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+	
+<!--要调度的对象：定时启动爬虫启动-->
+
+    <bean id="spiderJob" class="com.mashup.quartz.SpiderJob" scope="singleton">
+    	<property name="taobaoSpider">
+			<ref bean="TaoBaoSpider"/>
+		</property>
+		<property name="ebaySpider">
+			<ref bean="ebaySpider"/>
+		</property>
+    </bean>
+    
+<!-- 定义目标bean和bean中的方法 -->
+    <bean id="taobaoSpiderTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref local="spiderJob"/>
+        </property>
+        <property name="targetMethod">
+            <value>taobaoWork</value>
+        </property>
+    </bean>
+    
+
+<!-- 定义触发的时间 -->
+    <bean id = "taobaoStartTime" class = "org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="taobaoSpiderTask"/>
+        </property>
+        <property name="cronExpression">
+            <value>0 1 14 * * ?</value>
+        </property>
+    </bean>
+    
+    
+<!-- 定义目标bean和bean中的方法 -->
+    <bean id="ebaySpiderTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref local="spiderJob"/>
+        </property>
+        <property name="targetMethod">
+            <value>ebayWork</value>
+        </property>
+    </bean>
+<!-- 定义触发的时间 -->
+    <bean id = "ebayStartTime" class = "org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="ebaySpiderTask"/>
+        </property>
+        <property name="cronExpression">
+            <value>0 9 14 * * ?</value>
+        </property>
+    </bean>
+    
+    
+<!-- 定义目标bean和bean中的方法 -->
+    <bean id="stopSpiderTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref local="spiderJob"/>
+        </property>
+        <property name="targetMethod">
+            <value>stop</value>
+        </property>
+    </bean>
+    
+<!-- 定义触发的时间 -->
+    <bean id = "stopTime" class = "org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="stopSpiderTask"/>
+        </property>
+        <property name="cronExpression">
+            <value>0 0 8 * * ?</value>
+        </property>
+    </bean>
+    
+   <!-- 定义目标bean和bean中的方法 -->
+    <bean id="addToDiskTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref local="spiderJob"/>
+        </property>
+        <property name="targetMethod">
+            <value>addToDisk</value>
+        </property>
+    </bean>
+<!-- 定义触发的时间 -->
+    <bean id = "addTime" class = "org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="addToDiskTask"/>
+        </property>
+        <property name="cronExpression">
+            <value>0 0/5 * * * ?</value>
+        </property>
+    </bean>
+    
+<!--要调度的对象：定期删除过期广告-->
+	<bean id="advertiseJob" class="com.mashup.quartz.AdvertiseJob">
+		    <property name="advertiseService">
+					<ref bean="AdvertiseService" />
+				</property>
+	</bean>
+
+<!-- 定义目标bean和bean中的方法 -->
+    <bean id="advertiseTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref local="advertiseJob"/>
+        </property>
+        <property name="targetMethod">
+            <value>delete</value>
+        </property>
+    </bean>
+    <!-- 定义触发的时间 -->
+    <bean id = "adDeleteTime" class = "org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="advertiseTask"/>
+        </property>
+        <property name="cronExpression">
+            <value>0/10 * * * * ?</value>
+        </property>
+    </bean>
+    
+    
+<!-- 总管理 -->
+    <bean id="schedulerFactoryBean" lazy-init="false" autowire = "no" class = "org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+				 <ref local ="taobaoStartTime"/>  
+				 <ref local="ebayStartTime" />
+				 <ref local ="stopTime"/>  	
+				   <!--  <ref local ="addTime"/>   -->
+               <!--  <ref local ="adDeleteTime"/> -->
+            </list>
+        </property>
+    </bean>
+
+</beans>

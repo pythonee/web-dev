@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+						default-autowire="no" 
+						default-dependency-check="none"
+						default-lazy-init="true">
+
+	<bean id="BiaDataModel" class="com.mashup.resys.model.BiaDataModel">
+		<constructor-arg>
+			<ref bean="DataSource"/>
+		</constructor-arg>
+		<property name="collectionService">
+			<ref bean="CollectionService" />
+		</property>
+		<property name="friendService">
+			<ref bean="FriendService" />
+		</property>
+		<property name="userService">
+			<ref bean="UserService" />
+		</property>
+		<property name="productPreferenceService">
+			<ref bean="ProductPreferenceService" />
+		</property>
+	</bean>
+	
+	<bean id="BiaUserFriendNeighborHood" class="com.mashup.resys.neighborhood.BiaUserFriendNeighborHood">
+		<constructor-arg index="0">
+			<ref bean="PearsonCorrelationSimilarity"/>
+		</constructor-arg>	
+		<constructor-arg index="1">
+			<ref bean="BiaDataModel"/>
+		</constructor-arg>
+		<property name="friendService">
+			<ref bean="FriendService" />
+		</property>
+	</bean>
+	
+	<bean id="PearsonCorrelationSimilarity" class="org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity">
+		<constructor-arg index="0">
+			<ref bean="BiaDataModel"/>
+		</constructor-arg>	
+	</bean>
+	
+	<bean id="LogLikelihoodSimilarity" class="org.apache.mahout.cf.taste.impl.similarity.LogLikelihoodSimilarity">
+		<constructor-arg index="0">
+			<ref bean="BiaDataModel"/>
+		</constructor-arg>	
+	</bean>
+		
+	<bean id="BiaUserFriendCollectionBaseUserSimiliarity" class="com.mashup.resys.similiarity.BiaUserFriendCollectionBaseUserSimiliarity">
+		<property name="collectionService">
+			<ref bean="CollectionService" />
+		</property>
+	</bean>
+	
+	<bean id="BiaUserFriendCollectionBaseRecommender" class="com.mashup.resys.recommender.BiaUserFriendCollectionBaseRecommender">
+		<constructor-arg index="0">
+			<ref bean="BiaDataModel"/>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<ref bean="BiaUserFriendNeighborHood"/>
+		</constructor-arg>
+		<constructor-arg index="2">
+			<ref bean="BiaUserFriendCollectionBaseUserSimiliarity"/>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="BiaUserFriendPreferenceBaseRecommender" class="com.mashup.resys.recommender.BiaUserFriendPreferenceBaseRecommender">
+		<constructor-arg index="0">
+			<ref bean="BiaDataModel"/>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<ref bean="BiaUserFriendNeighborHood"/>
+		</constructor-arg>
+		<constructor-arg index="2">
+			<ref bean="PearsonCorrelationSimilarity"/>
+		</constructor-arg>
+		<property name="userNeighborhood">
+			<ref bean="BiaUserFriendNeighborHood"/>
+		</property>
+	</bean>
+	
+	<bean id="BiaUserFriendRecommender" class="com.mashup.resys.recommender.BiaUserFriendRecommender">
+		<property name="dataModel">
+			<ref bean="BiaDataModel" />
+		</property>
+	</bean>
+
+</beans>						

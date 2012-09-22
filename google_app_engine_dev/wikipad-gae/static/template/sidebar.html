@@ -1,0 +1,143 @@
+<script type="text/javascript" src="/js/tagcloud.js"></script>
+<?py for _ in cache_as('siderbar', SIDEBAR_CACHE_TIME): ?>
+<?py
+    from model import Tag, Category, Article
+    from math import log
+
+    tags = Tag.get_all_tags(more_than=1)
+    categories = Category.get_all_categories()
+    hot_articles = Article.get_hot_articles_for_sidebar()
+?>
+
+<div id="sidebar" class="span4">
+  <div id="rss-wrapper" class="widget-container">
+    <h4 class="widget-title">Follow me</h4>
+    <div id="sidebar-follow" class="widget-content">
+      <ul class="media-grid">
+        <li>
+        <a
+          href="http://www.google.com/ig/add?feedurl=http://py-note.appspot.com/feed">
+          <img class="thumbnail" src="/images/feed-icon.png" alt=""
+          id="img-feed">
+        </a>
+        </li>
+        <li>
+        <a href="https://plus.google.com/u/0/109882389158243111560"
+          target="_blank">
+          <img class="thumbnail" src="/images/gplus-icon.jpg" alt="">
+        </a>
+        </li>
+        <li>
+        <a href="http://twitter.com/pythonee" target="_blank">
+          <img class="thumbnail" src="/images/twitter-icon.png" alt="">
+        </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="tag-cloud-wrapper" class="widget-container">
+    <h4 class="widget-title">
+      Tags
+      <?py if request.is_admin: ?>
+      <span class="pull-right">
+        <a href="#{{BLOG_ADMIN_RELATIVE_PATH}}tags/" target="_blank">manage</a>
+      </span>
+      <?py #endif ?>
+    </h4>
+    <div id="sidebar-tagcloud" class="widget-content">
+      <?py for tag in tags: ?>
+      <?py tag_name = tag.key().name() ?>
+        <span>
+          <a href="#{{BLOG_HOME_RELATIVE_PATH}}tag/#{quoted_url(tag_name)}"
+             style="font-size:#{int(3*log(max(tag.count+1,1))) + 12}px">
+            #{tag_name}
+          </a>
+        </span>
+      <?py #endfor ?>
+    </div>
+  </div> <!-- /tag-cloud-wrapper -->
+
+  <div id="categroy-wrapper" class="widget-container">
+    <h4 class="widget-title">
+      Categories
+      <?py if request.is_admin: ?>
+      <span class="pull-right">
+        <a href="#{{BLOG_ADMIN_RELATIVE_PATH}}categories/" target="_blank">manage</a>
+      </span>
+      <?py #endif ?>
+    </h4>
+    <div id="sidebar-category" class="widget-content">
+      <ul>
+        <?py
+          if categories:
+            next_levels = [category.level() for category in categories[1:]] + [1]
+
+            for category, next_level in izip(categories, next_levels):
+              category_name = category.key().name()
+
+              link = '<a href="%scategory/%s" title="%s">%s</a>' % \
+              tuple([BLOG_HOME_RELATIVE_PATH, quoted_url(category_name)] + [category_name] * 2)
+
+              current_level = category.level()
+              if current_level == next_level:
+        ?>
+              <li>#{link}</li>
+        <?py 			elif current_level < next_level: ?>
+              <li>#{link}<ul>
+        <?py 			else: ?>
+              <li>#{link}</li>#{'</ul></li>' * (current_level - next_level)}
+        <?py
+              #endif
+            #endfor
+          #endif
+        ?>
+      </ul>
+    </div>
+  </div>
+
+  <div id="hot-post-wrapper" class="widget-container">
+    <h4 class="widget-title">
+      Hot Articles
+    </h4>
+    <div id="hot-post" class="widget-content">
+      <ul>
+      <?py for article in hot_articles: ?>
+      <li>
+        <a href="#{{BLOG_HOME_RELATIVE_PATH}}#{quoted_url(article.url)}" title="#{article.title}">
+          #{article.title}
+        </a>
+      </li>
+      <?py #endfor ?>
+      </ul>
+    </div>
+  </div> <!-- /hot post -->
+
+  <div id="hot-post-wrapper" class="widget-container">
+    <h4 class="widget-title">
+      Recent Comments
+    </h4>
+    <div id="recentcomments" class="dsq-widget">
+      <script type="text/javascript"
+        src="http://py-note.disqus.com/recent_comments_widget.js?num_items=10&hide_avatars=0&avatar_size=32&excerpt_length=200"></script>
+    </div>
+  </div>
+
+  <div id="useful-link-wrapper" class="widget-container">
+    <h4 class="widget-title">
+      Useful links
+      <?py if request.is_admin: ?>
+      <span class="pull-right">
+        <a href="#{{BLOG_ADMIN_RELATIVE_PATH}}links/" target="_blank">manage</a>
+      </span>
+      <?py #endif ?>
+    </h4>
+    <div id="useful-link" class="widget-content">
+      <ul>
+        <li><a href="http://www.emerangel.org" target="_blank">Emerangel Team</a></li>
+        <li><a href="http://mindhacks.cn/" target="_blank">MindHacks</a></li>
+        <li><a href="http://groups.google.com/group/pongba" target="_blank">Toplanguage | Google Group</a></li> </ul>
+    </div>
+  </div>
+
+</div>
+<?py #endfor ?>

@@ -1,0 +1,125 @@
+<?py include('../header.html') ?>
+
+<script src="/js/bootstrap-alerts.js"></script>
+<script src="/js/bootstrap-buttons.js"></script>
+<script src="/js/submit.js"></script>
+
+<div class="row">
+  <div class="span14">
+    <div class="info"></div>
+    <h2> Category Manage</h2>
+    <div class="spacer"></div>
+    <ul class="tabs">
+      <li class="active"><a href="#add">Add</a></li>
+      <li><a href="#delete">Delete</a></li>
+      <li><a href="#rename">Rename</a></li>
+      <li><a href="#sync">Sync</a></li>
+    </ul>
+
+    <div class="pill-content">
+      <div class="active" id="add">
+        <form action="#{{BLOG_ADMIN_RELATIVE_PATH}}categories/add/"
+          method="POST" class="ajax-form">
+          <fieldset>
+            <div class="clearfix">
+              <label for="xlInput">Category names:</label>
+              <div class="input">
+                <input class="xlarge" id="path" name="path" size="30" type="text">
+                <span class="help-block">split path with '/', split category with ','</span>
+              </div>
+            </div>
+            <div class="actions">
+              <button type="submit" class="btn large primary" id="submit-btn"
+                data-loading-text="posting...">Add</button>
+              <button  data-controls-modal="cancel-modal" data-backdrop="true"
+                type="button" class="btn large cancel-btn">Cancel</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      <div id="delete">
+        <form action="#{{BLOG_ADMIN_RELATIVE_PATH}}category/delete/"
+          method="POST" class="ajax-form">
+          <fieldset>
+            <div class="clearfix">
+              <label for="xlInput">Category names:</label>
+              <div class="input">
+                <select name="path" id="path">
+                  <?py for category in categories: ?>
+                  <option value="#{category.path}">#{category.path}</option>
+                  <?py #endfor ?>
+                </select>
+              </div>
+            </div>
+            <div class="actions">
+              <button type="submit" class="btn large danger" id="del-cate-btn"
+                data-loading-text="posting...">Delete</button>
+              <button  data-controls-modal="cancel-modal" data-backdrop="true"
+                type="button" class="btn large cancel-btn">Cancel</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      <div id="rename">
+        <form action="#{{BLOG_ADMIN_RELATIVE_PATH}}category/rename/"
+          method="POST" class="ajax-form">
+          <fieldset>
+            <div class="clearfix">
+              <label for="xlInput">Category names:</label>
+              <div class="input">
+                <select name="old-path" id="old-path">
+                  <?py for category in categories: ?>
+                  <option value="#{ category.path }">#{category.path}</option>
+                  <?py #endfor ?>
+                </select>
+              </div>
+            </div>
+            <div class="clearfix">
+              <label for="xlInput">To:</label>
+            </div>
+            <div class="clearfix">
+              <label for="xlInput">New name:</label>
+              <div class="input">
+                <input class="large" id="new-path" name="new-path" size="30" type="text">
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="btn large primary" id="rename-cate-btn"
+                data-loading-text="posting...">Rename</button>
+              <button  data-controls-modal="cancel-modal" data-backdrop="true"
+                type="button" class="btn large cancel-btn">Cancel</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      <div id="sync">
+        <form action="#{{BLOG_ADMIN_RELATIVE_PATH}}category/sync/" method="GET"
+          class="ajax-form">
+          <fieldset>
+          <legend>Synchronous categories in Category model with Article Model</legend>
+            <div class="actions">
+              <button type="submit" class="btn large primary" id="sync-submit-btn"
+                data-loading-text="posting...">Sync</button>
+              <button  data-controls-modal="cancel-modal" data-backdrop="true"
+                type="button" class="btn large cancel-btn">Cancel</button>
+            </div>
+
+          </fieldset>
+        </form>
+      </div>
+
+    <script>
+      $(function () {
+        $('.tabs').tabs()
+      })
+    </script>
+
+    </div> <!-- /pill content -->
+  </div> <!-- /span14 -->
+</div> <!-- /row -->
+
+<?py include('../footer.html') ?>

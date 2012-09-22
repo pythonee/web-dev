@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+	
+	<!-- 方法调用拦截器的Advice -->
+	<bean id="TrackLoggingAdvisor"
+		class="com.mashup.utils.TrackLoggingAdvisor" /> 
+		
+	<!-- 设定advice织入规则 -->
+	<bean id="advisor"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice" ref="TrackLoggingAdvisor" />
+		<property name="patterns">
+			<list>
+				<value>.*save.*</value>
+				<value>.*delete.*</value>
+				<value>.*find.*</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 使用atuoProxy自动代理 -->
+	<bean id="autoProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
+	</bean>
+</beans>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>
+					classpath:/com/mashup/resources/MailServerConfig_zh_CN.properties
+				</value>
+				<value>
+					classpath:/com/mashup/resources/MailTemplate_zh_CN.properties
+				</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="VelocityMailSupport"
+		class="com.mashup.utils.VelocityMailSupport" abstract="true">
+		<property name="mailSender" ref="PooledMailSender" />
+		<property name="velocityEngine" ref="VelocityEngine" />
+		<property name="mailHeaders">
+			<props>
+				<prop key="Content-Type">
+					${mail.default.contentType}
+				</prop>
+			</props>
+		</property>
+		<property name="from">
+			<value>${mail.default.from}</value>
+		</property>
+	</bean>
+
+
+	<bean id="PooledMailSender"
+		class="com.mashup.utils.PooledMailSender" destroy-method="close">
+		<property name="mailSender">
+			<ref bean="JavaMailSender" />
+		</property>
+	</bean>
+
+	<bean id="JavaMailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host">
+			<value>${mail.host}</value>
+		</property>
+		<property name="username">
+			<value>${mail.username}</value>
+		</property>
+		<property name="password">
+			<value>${mail.password}</value>
+		</property>
+		<property name="port">
+			<value>465</value>
+		</property>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+				<prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+				<prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</prop>
+				<prop key="mail.smtp.socketFactory.class">
+					${mail.smtp.socketFactory.class}
+				</prop>
+				<prop key="mail.smtp.socketFactory.fallback">
+					${mail.smtp.socketFactory.fallback}
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Configure Velocity for sending e-mail -->
+	<bean id="VelocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="resourceLoaderPath">
+			<value>${mail.velocity.resourceLoaderPath}</value>
+		</property>
+	</bean>
+</beans>

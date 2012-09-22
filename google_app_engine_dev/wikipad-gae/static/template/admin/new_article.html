@@ -1,0 +1,110 @@
+<?py include('../header.html') ?>
+
+<script src="/ckeditor/ckeditor.js"></script>
+<script src="/js/submit.js"></script>
+
+<?py from datetime import datetime ?>
+
+<div class="info"></div>
+<div class="row">
+  <div class="span14">
+    <form action="" method="POST" class="ajax-form">
+      <fieldset>
+        <legend>New article</legend>
+        <div class="clearfix">
+          <label for="xlInput">Title</label>
+          <div class="input">
+            <input class="xxlarge" id="title" name="title" size="30" type="text">
+          </div>
+        </div>
+
+        <div class="clearfix">
+          <label for="xlInput">Content</label>
+          <div class="input">
+            <textarea class="span11" id="content" name="content" rows="15"
+              cols="120"></textarea>
+            <script type="text/javascript">
+              CKEDITOR.replace('content')
+            </script>
+          </div>
+        </div>
+
+        <hr style="border-top:dashed 1px #BFBFBF">
+
+        <div class="clearfix">
+          <label for="normalSelect">Category</label>
+          <div class="input">
+            <select name="category" id="category">
+              <option value="">None</option>
+              <?py for category in categories: ?>
+              <option value="#{quoted_url(category.path)}">#{category.path}</option>
+              <?py #endfor ?>
+            </select>
+          </div>
+        </div>
+
+        <div class="clearfix">
+          <label for="xlInput">Tags</label>
+          <div class="input">
+            <input class="xxlarge" id="tags" name="tags" type="text">
+            <ul class="tag-horizontal">
+            <?py for tag in tags: ?>
+            <li><a href="#" class="quick-add-tag" title="click to add">#{tag}</a></li>
+            <?py #endfor ?>
+            </ul>
+          </div>
+        </div>
+
+        <div class="clearfix">
+          <label for="xlInput">Permanent Url</label>
+          <div class="input">
+            <input class="xxlarge" id="url" name="url" size="30"
+            type="text">
+          </div>
+        </div>
+
+        <div class="clearfix">
+          <label for="xlInput">Publish Time</label>
+          <div class="input">
+            <input class="xxlarge" id="time" name="time" size="30" type="text"
+            value="#{formatted_time(datetime.utcnow())}">
+            <span class="help-block">YYYY-MM-DD HH:MM:SS</span>
+          </div>
+        </div>
+
+        <div class="clearfix">
+          <label for="xlInput">Last Modify Time</label>
+          <div class="input">
+            <input class="xxlarge" id="mod_time" name="mod_time" size="30" type="text"
+            value="#{formatted_time(datetime.utcnow())}">
+            <span class="help-block">YYYY-MM-DD HH:MM:SS</span>
+          </div>
+        </div>
+
+        <div class="clearfix">
+          <label for="xlInput">Published</label>
+          <div class="input">
+            <ul class="inputs-list">
+              <li> <label> <input type="radio" checked name="published" value="on"> <span>published</span> </label> </li>
+              <li> <label> <input type="radio" name="published" value="off"> <span>save as draft</span> </label> </li>
+            </ul>
+          </div>
+        </div>
+
+      </fieldset>
+      <?py include('cancel_modal.html') ?>
+    </form>
+  </div> <!-- /span14 -->
+
+  <script>
+    $(function(){
+      $('.quick-add-tag').click(function(){
+        $('#tags').val($('#tags').val() + $(this).html() + ',');
+        return false;
+      })
+    })
+
+  </script>
+
+</div>
+<?py include('../footer.html') ?>

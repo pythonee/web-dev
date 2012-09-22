@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+
+	<!-- 此文件是配置系统中所有DAO实现  -->
+	
+	<!-- 广告分类的DAO -->
+	<bean id="AdcategoryDAO"
+		class="com.mashup.dao.impl.AdcategoryDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 广告管现的DAO -->
+	<bean id="AdvertiseDAO" class="com.mashup.dao.impl.AdvertiseDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 商品分类的DAO -->
+	<bean id="CategoryDAO" class="com.mashup.dao.impl.CategoryDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="CollectionDAO"
+		class="com.mashup.dao.impl.CollectionDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="CommentDAO" class="com.mashup.dao.impl.CommentDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="FriendDAO" class="com.mashup.dao.impl.FriendDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="ProductSimilarityDAO"
+		class="com.mashup.dao.impl.ProductSimilarityDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="ProductDAO" class="com.mashup.dao.impl.ProductDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="ResourcesDAO" class="com.mashup.dao.impl.ResourcesDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="RoleDAO" class="com.mashup.dao.impl.RoleDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="UserDAO" class="com.mashup.dao.impl.UserDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="ProductPreferenceDAO"
+		class="com.mashup.dao.impl.ProductPreferenceDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="ResourcesRoleDAO"
+		class="com.mashup.dao.impl.ResourcesRoleDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="UserRoleDAO" class="com.mashup.dao.impl.UserRoleDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="SensitivewordDAO"
+		class="com.mashup.dao.impl.SensitivewordDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="PersistentLoginsDAO"
+		class="com.mashup.dao.impl.PersistentLoginsDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="TrackDAO" class="com.mashup.dao.impl.TrackDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+	<bean id="IpTrackDAO" class="com.mashup.dao.impl.IpTrackDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean></beans>

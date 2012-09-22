@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+						default-autowire="no" 
+						default-dependency-check="none"
+						default-lazy-init="true">
+
+	<bean id="DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/bia" />
+		<property name="user" value="root" />
+		<property name="password" value="root" />
+		<property name="initialPoolSize" value="10" />
+		<property name="maxPoolSize" value="40" />
+		<property name="minPoolSize" value="10" />
+		<property name="maxIdleTime" value="60" />
+		<property name="acquireIncrement" value="10" />  
+	</bean>
+
+	<!-- Hibernate SessionFactory Definition-->
+	<bean id="SessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="DataSource" />
+		</property>
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>classpath:/com/mashup/hbm</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLInnoDBDialect
+				</prop>
+				<!-- <prop key="hibernate.show_sql">true</prop> -->
+				<prop key="hibernate.connection.release_mode">
+					auto
+				</prop>
+				<!-- <prop key="hibernate.format_sql">true</prop> -->
+				<prop key="hibernate.jdbc.fetch_size">25</prop>
+				<prop key="hibernate.jdbc.batch_size">50</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.cache.use_second_level_cache">
+					true
+				</prop>
+				<prop key="hibernate.cache.provider_class">
+					net.sf.ehcache.hibernate.SingletonEhCacheProvider
+				</prop>
+				<prop
+					key="hibernate.cache.provider_configuration_file_resource_path">
+					/ehcache.xml
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Hibernate Template Defintion -->
+	<bean id="hibernateTemplate"
+		class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+		<property name="jdbcExceptionTranslator">
+			<ref bean="jdbcExceptionTranslator" />
+		</property>
+	</bean>
+
+	<!-- Spring Data Access Exception Translator Defintion -->
+	<bean id="jdbcExceptionTranslator"
+		class="org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator">
+		<property name="dataSource">
+			<ref bean="DataSource" />
+		</property>
+	</bean>
+
+	<!-- Hibernate Transaction Manager Definition -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+
+	<!-- define transaction interceptor -->
+	<bean id="txInterceptor"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributeSource">
+			<ref bean="txAttributes" />
+		</property>
+	</bean>
+	<!-- define transaction attribute -->
+	<bean id="txAttributes"
+		class="org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource">
+		<property name="properties">
+			<value>
+				find*=PROPAGATION_REQUIRED,readOnly
+				get*=PROPAGATION_REQUIRED,readOnly
+				set*=PROPAGATION_REQUIRED
+				save*=PROPAGATION_REQUIRED
+				insert*=PROPAGATION_REQUIRED
+				update*=PROPAGATION_REQUIRED
+				delete*=PROPAGATION_REQUIRED
+				remove*=PROPAGATION_REQUIRED
+				batch* = PROPAGATION_REQUIRED
+				*Recommend = PROPAGATION_REQUIRED
+				attach* = PROPAGATION_REQUIRED
+				forgot* = PROPAGATION_REQUIRED
+			</value>
+		</property>
+	</bean>
+	<!-- define transaction interceptor -->
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"> 
+        <property name="beanNames"> 
+            <list> 
+                <value>*Dao</value>
+                <value>*Service</value>
+                <value>Security*</value>
+            </list> 
+        </property> 
+        <property name="interceptorNames"> 
+            <list> 
+                <value>txInterceptor</value> 
+            </list> 
+        </property> 
+    </bean>  
+	<bean id="UserDAO" class="com.mashup.dao.impl.UserDAO">
+		<property name="sessionFactory">
+			<ref bean="SessionFactory" />
+		</property>
+	</bean>
+</beans>

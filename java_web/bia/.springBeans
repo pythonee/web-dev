@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[2.0.4.zmyeclipse650200806]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[true]]></enableImports>
+	<configs>
+		<config>WebRoot/WEB-INF/applicationContext-aop-log.xml</config>
+		<config>WebRoot/WEB-INF/applicationContext-dao.xml</config>
+		<config>WebRoot/WEB-INF/applicationContext-hibernate.xml</config>
+		<config>WebRoot/WEB-INF/applicationContext-mail.xml</config>
+		<config>WebRoot/WEB-INF/applicationContext-mail-template.xml</config>
+		<config>WebRoot/WEB-INF/applicationContext-quartz.xml</config>
+		<config>WebRoot/WEB-INF/applicationContext-service.xml</config>
+		<config>WebRoot/WEB-INF/applicationContext-spring-security.xml</config>
+	</configs>
+	<configSets>
+	</configSets>
+	<springVersion>1.2</springVersion>
+</beansProjectDescription>
